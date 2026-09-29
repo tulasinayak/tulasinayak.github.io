@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tulasi Nayak — AI Engineer</title>
+<meta name="description" content="Tulasi Nayak — AI Engineer (M.Sc. 2026, Saarland University) building LLM applications, AI agents, RAG pipelines and fine-tuned models. Open to full-time AI Engineer roles in Germany." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<script>
+  // set theme before paint to avoid a flash
+  try {
+    const t = localStorage.getItem("theme") ||
+      (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+<style>
+  :root {
+    --bg: #fdfdfd;
+    --text: #282728;
+    --muted: #6b6b6b;
+    --accent: #006cac;
+    --border: #d6d6d6;
+    --card: #f3f3f3;
+  }
+  :root[data-theme="dark"] {
+    --bg: #212737;
+    --text: #eaedf3;
+    --muted: #a5adbd;
+    --accent: #ff6b01;
+    --border: #3b4252;
+    --card: #2a3142;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    line-height: 1.7; font-size: 15px;
+    transition: background .2s, color .2s;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px dashed var(--border);
+  }
+  .bar { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; max-width: 780px; margin: 0 auto; }
+  .logo { font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+  .bar { flex-wrap: wrap; gap: 12px; }
+  nav.main { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  nav.main a {
+    text-decoration: none; font-weight: 500; font-size: .82rem;
+    padding: 6px 14px; border: 1.5px solid var(--border); border-radius: 999px;
+    transition: border-color .15s, background .15s, color .15s;
+  }
+  nav.main a:hover { border-color: var(--accent); color: var(--accent); }
+  nav.main a.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .icon-btn { background: none; border: 1.5px solid var(--border); border-radius: 999px; color: var(--text); cursor: pointer; font: inherit; font-size: 1rem; padding: 3px 10px; }
+  .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+  footer nav { display: flex; }
+  footer nav a { text-decoration: none; }
+  footer nav a:hover { color: var(--accent); }
+
+  /* ---------- sections ---------- */
+  section { padding: 56px 0; border-bottom: 1px dashed var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 26px; }
+  h2::before { content: "# "; color: var(--accent); }
+  h3 { font-size: 1.05rem; font-weight: 600; }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: 64px; }
+  .hero-top { display: flex; gap: 32px; align-items: center; }
+  .hero h1 { font-size: 2.1rem; line-height: 1.2; font-weight: 700; }
+  .hero h1 span { color: var(--accent); }
+  .role-title { margin-top: 10px; font-size: 1.25rem; font-weight: 700; }
+  .role-title::before { content: "$ "; color: var(--accent); }
+  .tagline { color: var(--muted); margin-top: 2px; }
+  .dot {
+    display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;
+    background: #22c55e; box-shadow: 0 0 0 0 #22c55e88; animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 8px #22c55e00; } 100% { box-shadow: 0 0 0 0 #22c55e00; } }
+  .photo {
+    width: 160px; height: 160px; flex-shrink: 0; border-radius: 50%;
+    object-fit: cover; border: 3px solid var(--accent);
+  }
+  .photo-fallback {
+    width: 160px; height: 160px; flex-shrink: 0; border-radius: 50%;
+    border: 3px dashed var(--accent); display: grid; place-items: center;
+    font-size: 2.6rem; font-weight: 700; color: var(--accent);
+  }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; }
+  .socials a { text-decoration: none; font-weight: 500; }
+  .socials a::before { content: "↗ "; color: var(--accent); }
+  .socials a:hover { color: var(--accent); text-decoration: underline; }
+
+  .update {
+    margin-top: 32px; padding: 14px 18px; border-left: 3px solid var(--accent);
+    background: var(--card); border-radius: 0 6px 6px 0; font-size: .92rem;
+  }
+  .update b { color: var(--accent); }
+
+  .about { margin-top: 28px; }
+  .about p + p { margin-top: 12px; }
+
+  .top-skills { margin-top: 30px; }
+  .top-skills h3 { font-size: .95rem; margin-bottom: 12px; }
+  .top-skills h3::before { content: "> "; color: var(--accent); }
+  .skill-list { list-style: none; display: grid; gap: 10px; }
+  .skill-list li { display: grid; grid-template-columns: 28px 1fr; align-items: baseline; }
+  .skill-list .n { color: var(--accent); font-weight: 700; }
+  .skill-list small { display: block; color: var(--muted); font-size: .85rem; }
+
+  /* ---------- timeline entries (experience / education) ---------- */
+  .entry { position: relative; padding-left: 22px; margin-bottom: 30px; border-left: 2px solid var(--border); }
+  .entry:last-child { margin-bottom: 0; }
+  .entry::before {
+    content: ""; position: absolute; left: -7px; top: 8px;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+  }
+  .entry .org { font-weight: 700; font-size: 1.08rem; text-decoration: none; }
+  .entry a.org:hover { color: var(--accent); text-decoration: underline; }
+  .entry .role { font-style: italic; }
+  .entry .meta { color: var(--muted); font-size: .85rem; }
+  .entry ul { margin: 8px 0 0 18px; }
+  .entry li { margin-bottom: 4px; }
+
+  /* ---------- projects ---------- */
+  .projects { display: grid; gap: 14px; }
+  .project {
+    display: block; text-decoration: none; padding: 18px 20px;
+    border: 1px solid var(--border); border-radius: 8px;
+    transition: border-color .15s, transform .15s;
+  }
+  .project:hover { border-color: var(--accent); transform: translateX(4px); }
+  .project-title { display: flex; justify-content: space-between; gap: 12px; }
+  .project-title h3 { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .project-title .arrow { color: var(--muted); }
+  .project:hover .arrow { color: var(--accent); }
+  .project p { margin: 6px 0 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+  .tags li { font-size: .75rem; padding: 1px 8px; border-radius: 4px; background: var(--card); color: var(--muted); }
+  .tags li::before { content: "#"; color: var(--accent); }
+
+  /* ---------- hobbies ---------- */
+  .hobbies { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .hobbies li { padding: 16px 18px; background: var(--card); border-radius: 8px; }
+  .hobbies .emoji { font-size: 1.4rem; }
+  .hobbies p { color: var(--muted); font-size: .88rem; }
+
+  /* ---------- contact ---------- */
+  .contact p { margin-bottom: 18px; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border: 2px solid var(--accent);
+    color: var(--accent); text-decoration: none; font-weight: 600; border-radius: 6px;
+    transition: background .15s, color .15s;
+  }
+  .btn:hover { background: var(--accent); color: var(--bg); }
+  button.btn { background: none; font: inherit; font-weight: 600; cursor: pointer; }
+  button.btn:hover { background: var(--accent); }
+
+  .mail { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--bg); }
+  .mail-head { border-bottom: 1px solid var(--border); }
+  .mail-row {
+    display: grid; grid-template-columns: 90px 1fr; align-items: center;
+    padding: 10px 16px; border-bottom: 1px dashed var(--border);
+  }
+  .mail-row:last-child { border-bottom: none; }
+  .mail-row span { color: var(--muted); font-size: .85rem; }
+  .mail input, .mail select, .mail textarea {
+    font: inherit; font-size: .92rem; color: var(--text); background: transparent;
+    border: none; outline: none; width: 100%;
+  }
+  .mail select { cursor: pointer; }
+  .mail select option { background: var(--bg); color: var(--text); }
+  .mail textarea { display: block; padding: 14px 16px; resize: vertical; min-height: 150px; }
+  .mail-row:focus-within span { color: var(--accent); }
+  .mail-foot {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+    padding: 12px 16px; border-top: 1px solid var(--border); background: var(--card);
+  }
+  .mail-foot small { color: var(--muted); font-size: .78rem; }
+  @media (max-width: 480px) { .mail-row { grid-template-columns: 1fr; gap: 2px; } }
+
+  footer { border-top: 1px dashed var(--border); padding: 26px 20px; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer nav { justify-content: center; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 8px; }
+
+  /* ---------- reveal while scrolling ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal.show { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 860px) {
+    .bar { flex-direction: column; align-items: stretch; padding: 12px 16px; max-width: 100vw; }
+    .bar > * { min-width: 0; max-width: 100%; }
+    .bar-right { justify-content: space-between; }
+    nav.main { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+    nav.main::-webkit-scrollbar { display: none; }
+    nav.main a { white-space: nowrap; }
+  }
+  @media (max-width: 680px) {
+    .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+    .photo, .photo-fallback { width: 120px; height: 120px; }
+    .hero h1 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <div class="bar-right" style="display:flex;align-items:center;gap:10px">
+      <a href="#home" class="logo">Tulasi Nayak</a>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+    </div>
+    <nav class="main" id="nav">
+      <a href="#home">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= 1. PHOTO + ABOUT + TOP 5 SKILLS ================= -->
+  <section id="home" class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>Hi, I am <span>Tulasi Nayak</span></h1>
+        <p class="role-title">AI Engineer</p>
+        <p class="tagline">LLM applications · AI agents · RAG · fine-tuning</p>
+        <div class="socials">
+          <!-- EDIT: your LinkedIn URL and email -->
+          <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="cv.pdf" target="_blank">Resume</a>
+          <a href="https://github.com/tulasinayak" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:YOUR-EMAIL@example.com">Email</a>
+        </div>
+      </div>
+      <!-- EDIT: put your picture in the repo as photo.jpg (square works best) -->
+      <img class="photo" src="photo.jpg" alt="Photo of Tulasi Nayak"
+           onerror="this.outerHTML='<div class=&quot;photo-fallback&quot;>TN</div>'" />
+    </div>
+
+    <div class="update">
+      <b><span class="dot"></span>Open to work:</b> graduating with an M.Sc. from Saarland University in 2026
+      and looking for full-time <b>AI Engineer</b> roles in Germany (on-site, hybrid or remote).
+    </div>
+
+    <div class="about">
+      <p>
+        I'm an AI Engineer who takes LLM systems from idea to working product. I build multi-agent
+        applications, retrieval-augmented pipelines and safety guardrails, and I fine-tune open-weight
+        models such as Qwen and Llama with LoRA and QLoRA on multi-GPU servers.
+      </p>
+      <p>
+        My master's thesis at Saarland University applies fine-tuned LLMs to a real clinical dataset,
+        and as a research assistant at CISPA I work with researchers from LMU Munich on LLM-driven
+        feature discovery for drug research, with a paper submitted to NeurIPS 2026 workshops.
+        Both taught me what production AI needs most: strong baselines, careful evaluation, and
+        results you can trust.
+      </p>
+      <p>
+        I'm looking for a team where I can ship LLM and agent features that real users rely on.
+      </p>
+    </div>
+
+    <div class="top-skills">
+      <h3>Top 5 skills</h3>
+      <ol class="skill-list">
+        <li><span class="n">01</span><div>LLM applications &amp; AI agents <small>multi-agent orchestration, tool use, LangChain, Ollama</small></div></li>
+        <li><span class="n">02</span><div>RAG &amp; LLM guardrails <small>retrieval pipelines, grounded generation, claim verification, PII redaction</small></div></li>
+        <li><span class="n">03</span><div>LLM fine-tuning <small>LoRA / QLoRA, PEFT, Hugging Face Transformers, Optuna, multi-GPU</small></div></li>
+        <li><span class="n">04</span><div>Python &amp; backend <small>PyTorch, FastAPI, Streamlit, Git, Linux</small></div></li>
+        <li><span class="n">05</span><div>Evaluation &amp; reliability <small>benchmarks, baselines, ablations, error analysis, confidence intervals</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= 2. EXPERIENCE ================= -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <a class="org" href="https://www.dfki.de" target="_blank" rel="noopener">DFKI — German Research Center for Artificial Intelligence</a>
+      <p class="role">Master's Thesis Student – Machine Learning / NLP</p>
+      <p class="meta">05/2025 – Present · Saarbrücken, Germany</p>
+      <ul>
+        <li>Owned an NLP classification problem end to end on sensitive clinical interview data: data processing, label handling, model selection, training, evaluation and reporting.</li>
+        <li>Fine-tuned Llama-3.1-8B and Qwen3-8B with 4-bit QLoRA (PyTorch, PEFT) on multi-GPU A100 hardware, benchmarked against classical and pretrained baselines on quality vs. compute cost.</li>
+        <li>Designed the evaluation protocol: patient-stratified cross-validation to prevent leakage, metrics suited to imbalanced labels, and Bayesian hyperparameter optimisation (Optuna); communicated results to clinical domain experts.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <a class="org" href="https://cispa.de" target="_blank" rel="noopener">CISPA Helmholtz Center for Information Security</a>
+      <p class="role">Research Assistant – Machine Learning (part-time)</p>
+      <p class="meta">08/2024 – Present · Saarbrücken, Germany</p>
+      <ul>
+        <li>Built XGBoost ML pipelines with systematic feature engineering for antimicrobial-activity prediction and benchmarked them against pretrained embeddings.</li>
+        <li>Designed an evaluation and audit framework testing whether LLM-proposed features can replace engineered descriptors — first-author paper submitted to NeurIPS 2026 workshops.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 3. EDUCATION ================= -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="entry">
+      <a class="org" href="https://www.uni-saarland.de" target="_blank" rel="noopener">Saarland University</a>
+      <p class="role">M.Sc. Computer Science</p>
+      <p class="meta">10/2023 – 2026 · Saarbrücken, Germany</p>
+      <ul>
+        <li>Relevant coursework: Generative AI, Trustworthy Machine Learning, Robustness in Machine Learning, Attacks on Machine Learning</li>
+        <li>Completed two research seminars</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <span class="org">NMAM Institute of Technology (Nitte Mahalinga Adyanthaya Memorial Institute of Technology)</span>
+      <p class="role">B.E. Information Science</p>
+      <p class="meta">08/2019 – 06/2023 · Udupi, India</p>
+      <ul>
+        <li>Grade: 1.3 on the German scale ("Sehr gut")</li>
+        <li>Manager of the ACM student council, ISTE member, organised technical and non-technical events, led final-year project group</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 4. PROJECTS ================= -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <!-- Each card is a link to its GitHub repo.
+         To add a project: copy one <a class="project">…</a> block, change the href, title, line and tags. -->
+    <div class="projects">
+
+      <a class="project" href="https://github.com/tulasinayak/medical_guardrail" target="_blank" rel="noopener">
+        <div class="project-title"><h3>Context Guardrail</h3><span class="arrow">↗</span></div>
+        <p>Three-stage LLM guardrail that asks for missing safety-critical context, grounds answers in retrieved evidence, and verifies claims before replying.</p>
+        <ul class="tags"><li>Python</li><li>RAG</li><li>Mistral</li><li>Guardrails</li></ul>
+      </a>
+
+      <a class="project" href="https://github.com/tulasinayak/TRIPBuddy" target="_blank" rel="noopener">
+        <div class="project-title"><h3>TRIPBuddy</h3><span class="arrow">↗</span></div>
+        <p>Multi-agent travel planner with a FastAPI backend and spoken itineraries via text-to-speech.</p>
+        <ul class="tags"><li>FastAPI</li><li>LangChain</li><li>ElevenLabs</li></ul>
+      </a>
+
+      <a class="project" href="https://github.com/tulasinayak/DocuMind-Agent" target="_blank" rel="noopener">
+        <div class="project-title"><h3>DocuMind Agent</h3><span class="arrow">↗</span></div>
+        <p>RAG chatbot that answers questions from PDF documents, grounding LLM responses in retrieved source content.</p>
+        <ul class="tags"><li>Python</li><li>LangChain</li><li>RAG</li><li>FAISS</li><li>Gradio</li></ul>
+      </a>
+
+      <a class="project" href="https://github.com/tulasinayak/depscan" target="_blank" rel="noopener">
+        <div class="project-title"><h3>depscan</h3><span class="arrow">↗</span></div>
+        <p>Scans Python dependencies for known CVEs, locates where vulnerable code is actually used, and uses a local LLM to judge real impact.</p>
+        <ul class="tags"><li>Python</li><li>Security</li><li>Streamlit</li><li>Ollama</li><li>OSV.dev</li></ul>
+      </a>
+
+      <a class="project" href="https://github.com/CamiloMartinezM/ml-healthcare-project" target="_blank" rel="noopener">
+        <div class="project-title"><h3>ML Healthcare Project</h3><span class="arrow">↗</span></div>
+        <p>Group project building regression and classification models for healthcare data — I worked on the classification pipeline.</p>
+        <ul class="tags"><li>Python</li><li>Machine Learning</li><li>Classification</li><li>Jupyter</li></ul>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ================= 5. HOBBIES ================= -->
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul class="hobbies">
+      <li><div class="emoji">🥾</div><h3>Hiking</h3><p>Getting outdoors and off the grid.</p></li>
+      <li><div class="emoji">🎨</div><h3>Painting</h3><p>A slow, creative counterbalance to writing code.</p></li>
+      <li><div class="emoji">✈️</div><h3>Traveling</h3><p>Exploring new places and cultures.</p></li>
+    </ul>
+  </section>
+
+  <!-- ================= 6. CONTACT ================= -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Hiring for an AI Engineer? I'd love to hear about the role. Send me a message and I'll reply within a day or two.</p>
+
+    <form id="contactForm" class="mail">
+      <div class="mail-head">
+        <div class="mail-row"><span>To:</span><b id="toAddr"></b></div>
+        <label class="mail-row"><span>From:</span>
+          <input type="text" id="fName" placeholder="Your name" required /></label>
+        <label class="mail-row"><span>Reply to:</span>
+          <input type="email" id="fEmail" placeholder="you@example.com" required /></label>
+        <label class="mail-row"><span>Type:</span>
+          <select id="fType">
+            <option>Job opportunity</option>
+            <option>Collaboration</option>
+            <option>Question about a project</option>
+            <option>Just saying hi</option>
+          </select></label>
+        <label class="mail-row"><span>Subject:</span>
+          <input type="text" id="fSubject" placeholder="What's it about?" /></label>
+      </div>
+      <textarea id="fMsg" rows="7" placeholder="Write your message…" required></textarea>
+      <div class="mail-foot">
+        <button type="submit" class="btn">Send ✉</button>
+        <small>Opens your email app with the message ready to send.</small>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="#home">Home</a>•<a href="#experience">Experience</a>•<a href="#education">Education</a>•<a href="#projects">Projects</a>•<a href="#hobbies">Hobbies</a>•<a href="#contact">Contact</a>
+  </nav>
+  © <span id="year"></span> Tulasi Nayak
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // dark / light toggle
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  // ===== EDIT: your email address (used by the contact form and the Email links) =====
+  const MY_EMAIL = "tulasinayak0701@gmail.com";
+
+  document.getElementById("toAddr").textContent = MY_EMAIL;
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.href = "mailto:" + MY_EMAIL);
+
+  // contact form → opens the visitor's email app with everything filled in
+  document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const subject = `[${v("fType")}] ${v("fSubject") || "Message from your website"}`;
+    const body = `${v("fMsg")}\n\n— ${v("fName")}\n${v("fEmail")}`;
+    location.href = `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  const nav = document.getElementById("nav");
+
+  // fade things in as you scroll down
+  const items = document.querySelectorAll("section h2, .entry, .project, .hobbies li, .top-skills, .about, .update, .contact p, .mail");
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); }
+  }), { threshold: 0.12 });
+  items.forEach(el => { el.classList.add("reveal"); io.observe(el); });
+
+  // highlight the nav link of the section you're in
+  const links = [...document.querySelectorAll("header nav a")];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("section[id]").forEach(s => spy.observe(s));
+</script>
+</body>
+</html>
