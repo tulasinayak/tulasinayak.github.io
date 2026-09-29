@@ -150,6 +150,9 @@
   .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
   .tags li { font-size: .75rem; padding: 1px 8px; border-radius: 4px; background: var(--card); color: var(--muted); }
   .tags li::before { content: "#"; color: var(--accent); }
+  .more-projects { border-style: dashed; text-align: center; }
+  .more-projects .project-title { justify-content: center; }
+  .more-projects p { margin: 4px 0 0; color: var(--muted); }
 
   /* ---------- hobbies ---------- */
   .hobbies { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
@@ -258,7 +261,9 @@
 
     <div class="update">
       <b><span class="dot"></span>Open to work:</b> graduating with an M.Sc. from Saarland University in 2026
-      and looking for full-time <b>AI Engineer</b> roles in Germany (on-site, hybrid or remote).
+      and open to full-time roles as <b>AI Engineer / Junior AI Engineer</b>, <b>LLM Engineer / Generative AI Engineer</b>,
+      <b>AI Agent Engineer / Agentic AI Engineer</b>, <b>Applied AI Engineer</b>, <b>Machine Learning Engineer (LLM/NLP focus)</b>,
+      or <b>NLP Engineer</b> (on-site, hybrid or remote).
     </div>
 
     <div class="about">
@@ -377,6 +382,11 @@
         <div class="project-title"><h3>ML Healthcare Project</h3><span class="arrow">↗</span></div>
         <p>Group project building regression and classification models for healthcare data — I worked on the classification pipeline.</p>
         <ul class="tags"><li>Python</li><li>Machine Learning</li><li>Classification</li><li>Jupyter</li></ul>
+      </a>
+
+      <a class="project more-projects" href="https://github.com/tulasinayak?tab=repositories" target="_blank" rel="noopener">
+        <div class="project-title"><h3>More projects on GitHub</h3><span class="arrow">↗</span></div>
+        <p>Browse the rest of my repositories.</p>
       </a>
 
     </div>
