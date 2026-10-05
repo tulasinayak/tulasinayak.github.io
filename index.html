@@ -121,12 +121,11 @@
     background: #1f9d55; box-shadow: 0 0 0 0 #1f9d5588; animation: pulse 1.8s infinite;
   }
   @keyframes pulse { 70% { box-shadow: 0 0 0 8px #1f9d5500; } 100% { box-shadow: 0 0 0 0 #1f9d5500; } }
-  .hero h1 { margin-top: 20px; font-size: clamp(3.4rem, 11vw, 7.5rem); line-height: 1.04; font-weight: 700; letter-spacing: -.045em; animation: rise .8s cubic-bezier(.16, 1, .3, 1) both; }
+  .hero h1 { margin-top: 20px; font-size: clamp(3.4rem, 11vw, 7.5rem); line-height: 1.04; font-weight: 700; letter-spacing: -.045em; }
   .name {
     display: inline-block; color: var(--accent); cursor: pointer;
     background: linear-gradient(transparent 64%, var(--mark) 64%, var(--mark) 92%, transparent 92%);
   }
-  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
   .lede { margin-top: 16px; max-width: 32rem; font-size: 1.35rem; line-height: 1.4; }
   .socials { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-top: 26px; }
   .btn {
@@ -173,25 +172,33 @@
   /* shortcuts that fly out when you hover the name */
   .fly {
     position: absolute; z-index: 3; display: block; padding: 10px 16px; border-radius: var(--r-in);
-    text-decoration: none; box-shadow: var(--shadow); white-space: nowrap;
+    text-decoration: none; box-shadow: var(--shadow); white-space: nowrap; text-align: left;
     opacity: 0; pointer-events: none;
-    transform: translate(var(--fx, 0), var(--fy, 0)) scale(.6) rotate(0deg);
+    transform: translate(var(--fx, 0), var(--fy, 0)) scale(.6);
     transition: opacity .25s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1), filter .15s;
+    transition-delay: var(--d, 0s);
   }
+  .hero-top.fly-on .fly { opacity: 1; pointer-events: auto; transform: rotate(var(--rot, 0deg)); }
+  .hero-top.fly-on .fly:hover, .hero-top.fly-on .fly:focus-visible { transform: rotate(0deg) scale(1.08); filter: brightness(1.06); transition-delay: 0s; }
   .fly b { display: block; font-size: 1rem; letter-spacing: -.01em; }
   .fly small { display: block; font-family: var(--mono); font-size: .7rem; opacity: .85; }
-  .hero-top.fly-on .fly { opacity: 1; pointer-events: auto; transform: rotate(var(--rot, 0deg)); }
-  .hero-top.fly-on .fly:hover { transform: rotate(0deg) scale(1.08); filter: brightness(1.06); }
   .fly.c-blue { background: var(--blue); color: var(--cream); }
   .fly.c-red { background: var(--red); color: var(--cream); }
   .fly.c-butter { background: var(--butter); color: var(--ink); }
   .fly.c-plain { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
-  .f1 { left: calc(50% - 560px); top: -30px; --rot: -5deg; --fx: 260px; --fy: 90px; }
-  .f2 { right: calc(50% - 560px); top: -38px; --rot: 4deg; --fx: -260px; --fy: 100px; transition-delay: .04s; }
-  .f3 { left: calc(50% - 590px); top: 44%; --rot: 3deg; --fx: 300px; --fy: 0px; transition-delay: .08s; }
-  .f4 { right: calc(50% - 590px); top: 42%; --rot: -4deg; --fx: -300px; --fy: 0px; transition-delay: .12s; }
-  .f5 { left: calc(50% - 550px); bottom: -30px; --rot: 5deg; --fx: 250px; --fy: -100px; transition-delay: .16s; }
-  .f6 { right: calc(50% - 550px); bottom: -22px; --rot: -3deg; --fx: -250px; --fy: -100px; transition-delay: .2s; }
+  .f1 { left: calc(50% - 570px); top: -30px; --rot: -5deg; --fx: 260px; --fy: 90px; }
+  .f2 { right: calc(50% - 560px); top: -38px; --rot: 4deg; --fx: -260px; --fy: 100px; --d: .04s; }
+  .f3 { left: calc(50% - 590px); top: 44%; --rot: 3deg; --fx: 300px; --fy: 0px; --d: .08s; }
+  .f4 { right: calc(50% - 600px); top: 42%; --rot: -4deg; --fx: -300px; --fy: 0px; --d: .12s; }
+  .f5 { left: calc(50% - 560px); bottom: -30px; --rot: 5deg; --fx: 250px; --fy: -100px; --d: .16s; }
+  .f6 { right: calc(50% - 550px); bottom: -22px; --rot: -3deg; --fx: -250px; --fy: -100px; --d: .2s; }
+
+  /* the headline types itself once when the page opens */
+  .hero h1 .ch { opacity: 0; }
+  .hero h1 .ch.on { opacity: 1; }
+  .caret { position: relative; display: inline-block; width: 0; height: 1em; vertical-align: -.12em; }
+  .caret::after { content: ""; position: absolute; left: 2px; top: 0; width: .06em; min-width: 3px; height: 100%; background: var(--cta); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
 
   /* ---------- sections are full-width bands that alternate through the palette ---------- */
   .band { padding: 76px 0; }
@@ -377,7 +384,7 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
-    .dot, .hero h1, .buddy, .eye, .hit { animation: none; }
+    .dot, .buddy, .eye, .hit { animation: none; }
     .btn, .ico, .project, .hobbies a, .h-ico, .fly, .skill-chips button, .used a, .buddy, .chat, .buddy-say, .pupil { transition: none; }
   }
 
@@ -456,16 +463,8 @@
     <div class="wrap">
       <div class="hero-top" id="heroTop">
 
-        <!-- shortcuts that appear while hovering the name -->
-        <a class="fly f1 c-blue" href="#about"><b>About me</b><small>who I am</small></a>
-        <a class="fly f2 c-plain" href="#thesis"><b>DFKI</b><small>master's thesis</small></a>
-        <a class="fly f3 c-red" href="#exp-amp"><b>CISPA</b><small>research assistant</small></a>
-        <a class="fly f4 c-blue" href="#skills"><b>Skills</b><small>and where I used them</small></a>
-        <a class="fly f5 c-plain" href="#projects"><b>Projects</b><small>LLM apps and agents</small></a>
-        <a class="fly f6 c-red" href="hobbies.html"><b>Hobbies</b><small>hiking, art, travel</small></a>
-
         <p class="status"><span class="dot"></span>Open to work in Germany</p>
-        <h1>Hi, I'm <span class="name" id="heroName" tabindex="0">Tulasi</span></h1>
+        <h1 id="heroTitle" aria-label="Hi, I'm Tulasi">Hi, I'm <span class="name" id="heroName" tabindex="0">Tulasi</span></h1>
         <p class="lede">I build LLM applications, AI agents and RAG pipelines.</p>
         <div class="socials">
           <a class="btn primary" href="#projects">View projects</a>
@@ -473,6 +472,16 @@
           <a class="ico" data-tip="GitHub" href="https://github.com/tulasinayak" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span class="sr">GitHub</span></a>
           <a class="ico" data-tip="LinkedIn" href="https://www.linkedin.com/in/tulasi-nayak/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg><span class="sr">LinkedIn</span></a>
         </div>
+
+        <!-- shortcuts that appear while hovering the name; they stay until the pointer leaves the first screen -->
+        <nav class="flies" aria-label="Shortcuts">
+          <a class="fly f1 c-blue" href="#thesis"><b>Thesis</b><small>LLMs on clinical interviews</small></a>
+          <a class="fly f2 c-plain" href="#exp-amp"><b>CISPA</b><small>research assistant</small></a>
+          <a class="fly f3 c-red" href="#skills"><b>Skills</b><small>and where I used them</small></a>
+          <a class="fly f4 c-blue" href="#p-guardrail"><b>Context Guardrail</b><small>featured project</small></a>
+          <a class="fly f5 c-plain" href="#education"><b>Education</b><small>M.Sc. Computer Science</small></a>
+          <a class="fly f6 c-red" href="#p-mia"><b>ML security</b><small>membership inference</small></a>
+        </nav>
       </div>
     </div>
   </section>
@@ -757,16 +766,47 @@
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
-  // hero: hovering (or focusing) the name opens the shortcuts; they stay while the pointer is in the hero
-  const heroTop = document.getElementById("heroTop");
-  const heroName = document.getElementById("heroName");
-  const openFly = () => heroTop.classList.add("fly-on");
-  const closeFly = () => heroTop.classList.remove("fly-on");
+  // hero: the headline types itself once when the page opens
+  const heroTitle = document.getElementById("heroTitle");
+  if (!reduceMotion) {
+    const chars = [];
+    const split = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType !== 3) return split(n);
+      const frag = document.createDocumentFragment();
+      [...n.textContent].forEach(c => {
+        const sp = document.createElement("span");
+        sp.className = "ch"; sp.textContent = c; sp.setAttribute("aria-hidden", "true");
+        frag.appendChild(sp); chars.push(sp);
+      });
+      n.replaceWith(frag);
+    });
+    split(heroTitle);
+    const caret = document.createElement("i");
+    caret.className = "caret"; caret.setAttribute("aria-hidden", "true");
+    chars[0].before(caret);
+    let i = 0;
+    const type = () => {
+      if (i === chars.length) return setTimeout(() => caret.remove(), 1600);
+      chars[i].classList.add("on"); chars[i].after(caret); i++;
+      setTimeout(type, chars[i - 1].textContent === "," ? 320 : 95);
+    };
+    setTimeout(type, 450);
+  }
+
+  // hero: hovering (or focusing) the name opens the shortcuts. They stay open while the
+  // pointer is anywhere on the first screen, and close shortly after it leaves.
+  const heroTop = document.getElementById("heroTop"), heroName = document.getElementById("heroName");
+  const hero = document.getElementById("home");
+  let flyTimer = 0;
+  const openFly = () => { clearTimeout(flyTimer); heroTop.classList.add("fly-on"); };
+  const closeFly = () => { clearTimeout(flyTimer); flyTimer = setTimeout(() => heroTop.classList.remove("fly-on"), 500); };
   heroName.addEventListener("mouseenter", openFly);
   heroName.addEventListener("focus", openFly);
   heroName.addEventListener("click", openFly);
-  heroTop.addEventListener("mouseleave", closeFly);
-  heroTop.addEventListener("focusout", e => { if (!heroTop.contains(e.relatedTarget)) closeFly(); });
+  hero.addEventListener("mouseenter", () => clearTimeout(flyTimer));
+  hero.addEventListener("mouseleave", closeFly);
+  hero.addEventListener("focusout", e => { if (!hero.contains(e.relatedTarget)) closeFly(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") heroTop.classList.remove("fly-on"); });
 
   // a skill link (or a shortcut) briefly rings the thing it jumps to
   const ring = hash => {
