@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tulasi Nayak — AI Engineer</title>
-<meta name="description" content="Tulasi Nayak — AI Engineer (M.Sc. 2026, Saarland University) building LLM applications, AI agents, RAG pipelines and fine-tuned models. Open to full-time AI Engineer roles in Germany." />
+<title>Tulasi Nayak | AI Engineer</title>
+<meta name="description" content="Tulasi Nayak, AI Engineer (M.Sc. 2026, Saarland University) building LLM applications, AI agents, RAG pipelines and fine-tuned models. Open to full-time AI Engineer roles in Germany." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <script>
   // set theme before paint to avoid a flash
   try {
@@ -17,68 +17,76 @@
   } catch (e) {}
 </script>
 <style>
+  /* palette: marian blue, bright red, butter yellow
+     shape: pills for interactive elements and tags, 24px for cards, 14px inside cards */
   :root {
-    --bg: #f7f8fb;
-    --surface: #ffffff;
-    --text: #131829;
-    --muted: #5b6478;
-    --accent: #4338ca;
-    --accent-2: #0e7490;
-    --on-accent: #ffffff;
-    --border: #e2e5ee;
-    --card: #eef0f7;
-    --glow-1: rgba(99, 102, 241, .16);
-    --glow-2: rgba(6, 182, 212, .14);
-    --shadow: 0 1px 2px rgba(19, 24, 41, .04), 0 8px 24px rgba(19, 24, 41, .06);
-    --shadow-lg: 0 2px 4px rgba(19, 24, 41, .05), 0 18px 40px rgba(67, 56, 202, .14);
-    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --blue: #23408e;
+    --red: #d7263d;
+    --butter: #fce588;
+    --ink: #131c3d;
+    --cream: #fffdf5;
+
+    --bg: #fffcf0;
+    --surface: #fffefa;
+    --text: #131c3d;
+    --muted: #565d78;
+    --accent: #23408e;
+    --on-accent: #fffdf5;
+    --cta: #d7263d;
+    --on-cta: #fffdf5;
+    --mark: #fce588;
+    --disc: #fce588;
+    --border: #e9e1c2;
+    --card: #fdf3c4;
+    --shadow: 0 1px 2px rgba(35, 64, 142, .05), 0 14px 34px rgba(35, 64, 142, .10);
+    --r: 24px;
+    --r-in: 14px;
+    --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
   }
   :root[data-theme="dark"] {
-    --bg: #0d1120;
-    --surface: #151b2e;
-    --text: #e8ebf4;
-    --muted: #9aa3b8;
-    --accent: #a5b4fc;
-    --accent-2: #67e8f9;
-    --on-accent: #0d1120;
-    --border: #262e47;
-    --card: #1b2238;
-    --glow-1: rgba(99, 102, 241, .22);
-    --glow-2: rgba(34, 211, 238, .12);
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
-    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .3), 0 18px 40px rgba(0, 0, 0, .4);
+    --bg: #0c1433;
+    --surface: #131d47;
+    --text: #f4f1e4;
+    --muted: #a9b0cc;
+    --accent: #fce588;
+    --on-accent: #0c1433;
+    --mark: rgba(215, 38, 61, .5);
+    --disc: #d7263d;
+    --border: #27346c;
+    --card: #1a2757;
+    --shadow: 0 1px 2px rgba(3, 7, 22, .4), 0 14px 34px rgba(3, 7, 22, .4);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   body {
     background: var(--bg); color: var(--text);
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: var(--sans);
     line-height: 1.65; font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(560px 340px at 30% 190px, var(--glow-1), transparent 70%),
-      radial-gradient(500px 320px at 72% 300px, var(--glow-2), transparent 70%);
-    background-repeat: no-repeat;
+    transition: background .2s, color .2s;
   }
   a { color: inherit; }
+  svg { display: block; }
   ::selection { background: var(--accent); color: var(--on-accent); }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
   /* ---------- header ---------- */
   header {
     position: sticky; top: 0; z-index: 20;
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 24px; max-width: 980px; margin: 0 auto; }
+  .bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 24px; max-width: 1040px; margin: 0 auto; }
   .bar-right { display: flex; align-items: center; gap: 10px; }
-  .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -.01em; text-decoration: none; }
+  .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -.02em; text-decoration: none; }
   nav.main { display: flex; gap: 2px; align-items: center; flex-wrap: wrap; }
   nav.main a {
-    text-decoration: none; font-weight: 500; font-size: .88rem; color: var(--muted);
-    padding: 7px 13px; border-radius: 999px;
+    text-decoration: none; font-weight: 500; font-size: .9rem; color: var(--muted);
+    padding: 7px 14px; border-radius: 999px;
     transition: background .15s, color .15s;
   }
   nav.main a:hover { color: var(--text); background: var(--card); }
@@ -86,176 +94,282 @@
   .icon-btn { background: none; border: 1px solid var(--border); border-radius: 999px; color: var(--text); cursor: pointer; font: inherit; font-size: .95rem; line-height: 1; padding: 6px 10px; }
   .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
 
-  /* ---------- sections ---------- */
-  section { padding: 72px 0; }
-  h2 {
-    font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 30px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-  h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; }
+  h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.03em; line-height: 1.2; margin-bottom: 18px; }
+  h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 30px 32px; }
 
   /* ---------- hero ---------- */
-  .hero { padding-top: 72px; padding-bottom: 56px; }
-  .hero-top { display: flex; gap: 48px; align-items: center; justify-content: space-between; }
+  .hero { min-height: calc(100dvh - 64px); display: grid; align-items: center; padding: 48px 0 64px; }
+  .hero-top { position: relative; display: flex; gap: 56px; align-items: center; justify-content: space-between; }
+  .kicker { font-family: var(--mono); font-size: .82rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
   .status {
-    display: inline-flex; align-items: center; gap: 4px;
+    display: inline-flex; align-items: center; margin-top: 14px;
     font-family: var(--mono); font-size: .78rem; font-weight: 500;
-    padding: 6px 14px; border-radius: 999px;
-    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface);
   }
-  .hero h1 { margin-top: 20px; font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.08; font-weight: 800; letter-spacing: -.035em; }
-  .hero h1 span {
-    display: block; padding-bottom: .08em;
-    background: linear-gradient(100deg, var(--accent), var(--accent-2));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .role-title { margin-top: 12px; font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; }
-  .tagline { color: var(--muted); margin-top: 6px; font-family: var(--mono); font-size: .88rem; }
   .dot {
-    display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;
-    background: #22c55e; box-shadow: 0 0 0 0 #22c55e88; animation: pulse 1.8s infinite;
+    display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px;
+    background: #1f9d55; box-shadow: 0 0 0 0 #1f9d5588; animation: pulse 1.8s infinite;
   }
-  @keyframes pulse { 70% { box-shadow: 0 0 0 8px #22c55e00; } 100% { box-shadow: 0 0 0 0 #22c55e00; } }
-  .photo-ring {
-    flex-shrink: 0; padding: 5px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    box-shadow: var(--shadow-lg);
+  @keyframes pulse { 70% { box-shadow: 0 0 0 8px #1f9d5500; } 100% { box-shadow: 0 0 0 0 #1f9d5500; } }
+  .hero h1 { margin-top: 20px; font-size: clamp(2.6rem, 6.6vw, 4.3rem); line-height: 1.08; font-weight: 700; letter-spacing: -.045em; animation: rise .8s cubic-bezier(.16, 1, .3, 1) both; }
+  .name {
+    display: inline-block; color: var(--accent); cursor: pointer;
+    background: linear-gradient(transparent 64%, var(--mark) 64%, var(--mark) 92%, transparent 92%);
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  .lede { margin-top: 18px; margin-bottom: 14px; max-width: 30rem; font-size: 1.3rem; line-height: 1.4; }
+  .where { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .where svg { width: 18px; height: 18px; }
+  .socials { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 26px; }
+  .btn {
+    display: inline-flex; align-items: center; white-space: nowrap;
+    padding: 11px 22px; border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface); color: var(--text);
+    font: inherit; font-size: .95rem; font-weight: 600; text-decoration: none; cursor: pointer;
+    transition: transform .2s cubic-bezier(.16, 1, .3, 1), border-color .15s, color .15s, filter .15s;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+  .btn:active { transform: scale(.98); }
+  .btn.primary { background: var(--cta); border-color: var(--cta); color: var(--on-cta); }
+  .btn.primary:hover { color: var(--on-cta); border-color: var(--cta); filter: brightness(1.08); }
+
+  /* round icon links, with a small label on hover */
+  .ico {
+    position: relative; display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
+    transition: transform .2s cubic-bezier(.16, 1, .3, 1), border-color .15s, color .15s, background .15s;
+  }
+  .ico svg { width: 20px; height: 20px; }
+  .ico:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+  .ico:active { transform: scale(.96); }
+  .ico::after {
+    content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%;
+    transform: translate(-50%, 4px); opacity: 0; pointer-events: none; white-space: nowrap;
+    font-family: var(--mono); font-size: .72rem; padding: 4px 10px; border-radius: 999px;
+    background: var(--text); color: var(--bg); transition: opacity .15s, transform .15s;
+  }
+  .ico:hover::after, .ico:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+  .photo-wrap { position: relative; flex-shrink: 0; margin-right: 18px; }
+  .photo-wrap::before {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    background: var(--disc); transform: translate(18px, 16px);
   }
   .photo, .photo-fallback {
-    display: block; width: 250px; height: 250px; border-radius: 50%;
-    border: 5px solid var(--bg);
+    position: relative; display: block; width: 280px; height: 280px; border-radius: 50%;
+    border: 4px solid var(--accent);
   }
   .photo { object-fit: cover; }
   .photo-fallback { display: grid; place-items: center; background: var(--card); font-size: 3.4rem; font-weight: 700; color: var(--accent); }
 
-  .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 20px; border: 1px solid var(--border); border-radius: 10px;
-    background: var(--surface); color: var(--text);
-    font: inherit; font-size: .93rem; font-weight: 600; text-decoration: none; cursor: pointer;
-    transition: transform .15s, box-shadow .15s, border-color .15s, color .15s;
+  /* shortcuts that fly out when you hover the name */
+  .hint { margin-top: 10px; font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+  .fly {
+    position: absolute; z-index: 3; display: block; padding: 10px 16px; border-radius: var(--r-in);
+    text-decoration: none; box-shadow: var(--shadow); white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    transform: translate(var(--fx, 0), var(--fy, 0)) scale(.6) rotate(0deg);
+    transition: opacity .25s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1), filter .15s;
   }
-  .btn:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow); }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); box-shadow: var(--shadow-lg); }
-  .btn.primary:hover { color: var(--on-accent); filter: brightness(1.08); }
+  .fly b { display: block; font-size: 1rem; letter-spacing: -.01em; }
+  .fly small { display: block; font-family: var(--mono); font-size: .7rem; opacity: .85; }
+  .hero-top.fly-on .fly { opacity: 1; pointer-events: auto; transform: rotate(var(--rot, 0deg)); }
+  .hero-top.fly-on .fly:hover { transform: rotate(0deg) scale(1.08); filter: brightness(1.06); }
+  .fly.c-blue { background: var(--blue); color: var(--cream); }
+  .fly.c-red { background: var(--red); color: var(--cream); }
+  .fly.c-butter { background: var(--butter); color: var(--ink); }
+  .fly.c-plain { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .f1 { left: -70px; top: -56px; --rot: -5deg; --fx: 90px; --fy: 110px; }
+  .f2 { right: -30px; top: -70px; --rot: 4deg; --fx: -60px; --fy: 130px; transition-delay: .04s; }
+  .f3 { right: -66px; top: 156px; --rot: 3deg; --fx: -110px; --fy: 0px; transition-delay: .08s; }
+  .f4 { left: -112px; top: 152px; --rot: -4deg; --fx: 130px; --fy: -20px; transition-delay: .12s; }
+  .f5 { left: -44px; bottom: -62px; --rot: 5deg; --fx: 80px; --fy: -120px; transition-delay: .16s; }
+  .f6 { right: -20px; bottom: -76px; --rot: -3deg; --fx: -70px; --fy: -130px; transition-delay: .2s; }
 
-  .highlights { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
-  .highlights li { padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); }
-  .highlights small { display: block; font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-  .highlights b { display: block; font-size: .95rem; line-height: 1.35; }
-  .highlights span { display: block; color: var(--muted); font-size: .83rem; margin-top: 2px; }
-
-  .update {
-    margin-top: 14px; padding: 20px 22px; border: 1px solid var(--border); border-radius: 14px;
-    background: var(--surface); box-shadow: var(--shadow);
-  }
-  .update p { font-size: .95rem; }
-  .roles { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .roles li { font-size: .82rem; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); }
-
-  .about-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; margin-top: 56px; align-items: start; }
-  .label { font-family: var(--mono); font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  /* ---------- about, experience, education, skills: stacked cards ---------- */
+  .profile { padding-bottom: 22px; }
+  .stack { display: grid; gap: 22px; min-width: 0; }
+  .about p { color: var(--muted); max-width: 75ch; }
   .about p + p { margin-top: 14px; }
-  .about p { color: var(--muted); }
-  .about .label + p { color: var(--text); font-size: 1.08rem; margin-top: 0; }
+  .about h2 + p { color: var(--text); font-size: 1.06rem; }
+  .open { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .open p { color: var(--text); font-weight: 500; }
+  .roles { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .roles li { font-size: .85rem; font-weight: 500; padding: 5px 13px; border-radius: 999px; background: var(--card); }
 
-  .skill-list { list-style: none; display: grid; gap: 10px; }
-  .skill-list li {
-    display: grid; grid-template-columns: 34px 1fr; align-items: baseline;
-    padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    font-weight: 600; font-size: .95rem;
-    transition: border-color .15s, transform .15s;
-  }
-  .skill-list li:hover { border-color: var(--accent); transform: translateX(4px); }
-  .skill-list .n { font-family: var(--mono); color: var(--accent); font-weight: 600; font-size: .82rem; }
-  .skill-list small { display: block; color: var(--muted); font-size: .82rem; font-weight: 400; margin-top: 1px; }
-
-  /* ---------- timeline entries (experience / education) ---------- */
-  .timeline { position: relative; display: grid; gap: 18px; padding-left: 28px; }
-  .timeline::before { content: ""; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--accent), var(--border)); border-radius: 2px; }
-  .entry {
-    position: relative; padding: 22px 24px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
-  }
-  .entry::before {
-    content: ""; position: absolute; left: -29px; top: 28px;
-    width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
-    box-shadow: 0 0 0 4px var(--bg);
-  }
-  .entry .org { font-weight: 700; font-size: 1.1rem; letter-spacing: -.01em; text-decoration: none; }
-  .entry a.org:hover { color: var(--accent); }
+  /* experience / education: dates on a rail, content beside it */
+  .entry { display: grid; grid-template-columns: 112px 1fr; gap: 6px 22px; }
+  .entry + .entry { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--border); }
+  .when { font-family: var(--mono); font-size: .78rem; line-height: 1.5; color: var(--muted); padding-top: 4px; }
+  .when b { display: block; color: var(--accent); font-weight: 500; }
+  .body { min-width: 0; }
+  .org { font-weight: 700; font-size: 1.15rem; letter-spacing: -.02em; line-height: 1.3; text-decoration: none; }
+  a.org:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
   .entry .role { font-weight: 500; color: var(--accent); margin-top: 2px; }
-  .entry .meta { color: var(--muted); font-family: var(--mono); font-size: .78rem; margin-top: 2px; }
-  .entry .thesis { margin-top: 10px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--card); border-radius: 0 8px 8px 0; font-size: .93rem; }
-  .entry .thesis b { color: var(--accent); }
-  .entry ul { margin: 12px 0 0 18px; color: var(--muted); font-size: .95rem; }
+  .entry ul { margin: 12px 0 0 18px; color: var(--muted); font-size: .97rem; }
   .entry li { margin-bottom: 6px; }
   .entry li::marker { color: var(--accent); }
-
-  /* ---------- projects ---------- */
-  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .project {
-    display: flex; flex-direction: column; text-decoration: none; padding: 22px 24px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
-    transition: border-color .2s, transform .2s, box-shadow .2s;
-  }
-  .project:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .project-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .project-title h3 { font-size: 1.12rem; }
-  .project-title .arrow { color: var(--muted); transition: transform .2s, color .2s; }
-  .project:hover h3, .project:hover .arrow { color: var(--accent); }
-  .project:hover .arrow { transform: translate(2px, -2px); }
-  .project p { margin: 8px 0 16px; color: var(--muted); font-size: .94rem; flex: 1; }
+  .panel { margin-top: 16px; padding: 18px 20px; border-radius: var(--r-in); background: var(--card); }
+  .panel h4 { font-size: 1.02rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.35; }
+  .panel h4 small { display: block; font-family: var(--mono); font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
+  .panel ul { color: var(--text); opacity: .86; }
+  .entry .tags { margin: 14px 0 0; }
+  .entry .tags li { margin-bottom: 0; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
-  .tags li { font-family: var(--mono); font-size: .72rem; padding: 2px 9px; border-radius: 6px; background: var(--card); color: var(--muted); }
-  .more-projects { border-style: dashed; box-shadow: none; background: transparent; justify-content: center; text-align: center; }
-  .more-projects .project-title { justify-content: center; }
-  .more-projects p { margin: 4px 0 0; flex: none; }
+  .tags li { font-family: var(--mono); font-size: .72rem; padding: 3px 10px; border-radius: 999px; background: var(--card); color: var(--muted); }
+  .panel .tags li { background: var(--surface); }
 
-  /* ---------- hobbies ---------- */
-  .hobbies { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
-  .hobbies li { padding: 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
-  .hobbies .emoji { font-size: 1.6rem; margin-bottom: 4px; }
-  .hobbies p { color: var(--muted); font-size: .9rem; }
+  /* skills: each one links to where it was used */
+  .skills-note { color: var(--muted); margin: -8px 0 16px; }
+  .skill-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-chips button {
+    font: inherit; font-size: .98rem; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
+    transition: background .15s, color .15s, border-color .15s, transform .25s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .skill-chips button:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .skill-chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); transform: none; }
+  .skill-box { margin-top: 20px; padding: 16px 20px; border-radius: var(--r-in); background: var(--card); display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .skill-box p { font-family: var(--mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .used { display: flex; flex-wrap: wrap; gap: 6px; }
+  .used a {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--surface);
+    font-size: .82rem; font-weight: 500; text-decoration: none;
+    transition: background .15s, color .15s, border-color .15s, transform .2s cubic-bezier(.16, 1, .3, 1);
+  }
+  .used a::after { content: "→"; color: var(--muted); transition: transform .2s, color .15s; }
+  .used a:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
+  .used a:hover::after { color: var(--on-accent); transform: translateX(3px); }
 
-  /* ---------- contact ---------- */
-  .contact > p { margin-bottom: 22px; color: var(--muted); font-size: 1.05rem; max-width: 620px; }
-  .mail { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); max-width: 720px; }
-  .mail-head { border-bottom: 1px solid var(--border); }
-  .mail-row {
-    display: grid; grid-template-columns: 90px 1fr; align-items: center;
-    padding: 11px 18px; border-bottom: 1px solid var(--border);
-  }
-  .mail-row:last-child { border-bottom: none; }
-  .mail-row span { color: var(--muted); font-family: var(--mono); font-size: .78rem; }
-  .mail input, .mail select, .mail textarea {
-    font: inherit; font-size: .95rem; color: var(--text); background: transparent;
-    border: none; outline: none; width: 100%;
-  }
-  .mail select { cursor: pointer; }
-  .mail select option { background: var(--surface); color: var(--text); }
-  .mail textarea { display: block; padding: 16px 18px; resize: vertical; min-height: 150px; }
-  .mail-row:focus-within span { color: var(--accent); }
-  .mail-foot {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
-    padding: 14px 18px; border-top: 1px solid var(--border); background: var(--card);
-  }
-  .mail-foot small { color: var(--muted); font-size: .82rem; }
-  @media (max-width: 480px) { .mail-row { grid-template-columns: 1fr; gap: 2px; } }
+  /* where a skill link lands gets a brief ring */
+  .hit { animation: hit 1.8s ease; }
+  @keyframes hit { 0%, 60% { box-shadow: 0 0 0 4px var(--cta); } 100% { box-shadow: 0 0 0 4px transparent; } }
 
-  footer { border-top: 1px solid var(--border); padding: 30px 20px; text-align: center; color: var(--muted); font-size: .88rem; }
-  footer nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 10px; }
+  /* ---------- full-width sections ---------- */
+  .block { padding: 64px 0 0; }
+  .block > h2 { font-size: 2rem; letter-spacing: -.035em; margin-bottom: 28px; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .project {
+    display: flex; flex-direction: column; text-decoration: none; padding: 26px 28px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--r);
+    transition: border-color .2s, transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s;
+  }
+  .project:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow); }
+  .project:active { transform: scale(.99); }
+  .project.feature { grid-column: span 2; background: var(--card); border-color: transparent; }
+  .project.feature h3 { font-size: 1.4rem; letter-spacing: -.03em; }
+  .project.feature p { max-width: 60ch; font-size: 1.02rem; color: var(--text); }
+  .project.feature .tags li { background: var(--surface); }
+  .project-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .project-title h3 { font-size: 1.15rem; }
+  .arrow { color: var(--muted); transition: transform .2s, color .2s; }
+  .project:hover h3, .project:hover .arrow { color: var(--accent); }
+  .project:hover .project-title .arrow { transform: translate(2px, -2px); }
+  .project p { margin: 8px 0 18px; color: var(--muted); font-size: .96rem; flex: 1; }
+  .more-projects { justify-content: center; border-style: dashed; background: transparent; }
+  .more-projects p { margin: 6px 0 0; flex: none; }
+
+  .hobbies { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .hobbies a {
+    display: flex; align-items: center; gap: 18px; padding: 20px 24px; border-radius: var(--r);
+    border: 1px solid var(--border); background: var(--surface); text-decoration: none;
+    transition: transform .25s cubic-bezier(.16, 1, .3, 1), border-color .2s, box-shadow .25s;
+  }
+  .hobbies b { flex: 1; font-size: 1.3rem; font-weight: 600; letter-spacing: -.02em; }
+  .h-ico { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; flex-shrink: 0; transition: transform .4s cubic-bezier(.34, 1.56, .64, 1); }
+  .h-ico svg { width: 30px; height: 30px; }
+  .h-ico.c1 { background: var(--blue); color: var(--cream); }
+  .h-ico.c2 { background: var(--red); color: var(--cream); }
+  .h-ico.c3 { background: var(--butter); color: var(--ink); }
+  .hobbies a:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
+  .hobbies a:hover .h-ico { transform: rotate(-10deg) scale(1.1); }
+  .hobbies a:hover b, .hobbies a:hover .arrow { color: var(--accent); }
+
+  .reach { text-align: center; padding-top: 80px; }
+  .reach h2 { font-size: 2rem; letter-spacing: -.035em; margin-bottom: 8px; }
+  .reach p { color: var(--muted); max-width: 46ch; margin: 0 auto; }
+  .reach .icons { display: flex; justify-content: center; gap: 14px; margin-top: 26px; }
+  .reach .ico { width: 58px; height: 58px; }
+  .reach .ico svg { width: 24px; height: 24px; }
+  .reach .ico.hot { background: var(--cta); border-color: var(--cta); color: var(--on-cta); }
+
+  footer { margin-top: 72px; border-top: 1px solid var(--border); padding: 32px 20px; text-align: center; color: var(--muted); font-size: .9rem; }
+  footer nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 22px; margin-bottom: 12px; }
   footer nav a { text-decoration: none; }
   footer nav a:hover { color: var(--accent); }
 
-  /* ---------- reveal while scrolling ---------- */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
-  .reveal.show { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } .dot { animation: none; } }
+  /* ---------- companion + chat ---------- */
+  .buddy-wrap { position: fixed; right: 22px; bottom: 22px; z-index: 30; display: flex; align-items: flex-end; gap: 12px; }
+  .buddy-say {
+    max-width: 210px; padding: 10px 14px; border-radius: 16px 16px 4px 16px;
+    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+    font-size: .88rem; line-height: 1.4; cursor: pointer;
+    opacity: 0; transform: translateY(8px) scale(.96); pointer-events: none;
+    transition: opacity .25s, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .buddy-say.on { opacity: 1; transform: none; pointer-events: auto; }
+  .buddy {
+    position: relative; flex-shrink: 0; width: 62px; height: 58px; border: none; cursor: pointer;
+    border-radius: 20px 20px 22px 22px; background: var(--butter); box-shadow: var(--shadow), inset 0 -5px 0 rgba(19, 28, 61, .12);
+    animation: bob 3.2s ease-in-out infinite;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .buddy:hover { transform: scale(1.08) rotate(-4deg); }
+  .buddy::before { content: ""; position: absolute; left: 50%; top: -9px; width: 3px; height: 10px; margin-left: -1.5px; background: var(--ink); border-radius: 2px; }
+  .buddy::after { content: ""; position: absolute; left: 50%; top: -15px; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; background: var(--red); }
+  .eye { position: absolute; top: 18px; width: 14px; height: 16px; border-radius: 50%; background: var(--cream); overflow: hidden; animation: blinkeye 4.5s infinite; }
+  .eye.l { left: 13px; } .eye.r { right: 13px; }
+  .pupil { position: absolute; left: 4px; top: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); transform: translate(var(--px, 0px), var(--py, 0px)); transition: transform .12s linear; }
+  .mouth { position: absolute; left: 50%; bottom: 10px; width: 14px; height: 7px; margin-left: -7px; border: 2.5px solid var(--ink); border-top: none; border-radius: 0 0 12px 12px; }
+  @keyframes bob { 50% { translate: 0 -5px; } }
+  @keyframes blinkeye { 0%, 94%, 100% { scale: 1 1; } 97% { scale: 1 .1; } }
 
-  /* ---------- mobile ---------- */
+  .chat {
+    position: fixed; right: 22px; bottom: 96px; z-index: 31; width: min(370px, calc(100vw - 32px)); height: min(520px, calc(100dvh - 130px));
+    display: flex; flex-direction: column; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow);
+    opacity: 0; transform: translateY(16px) scale(.96); transform-origin: bottom right; pointer-events: none; visibility: hidden;
+    transition: opacity .2s, transform .35s cubic-bezier(.16, 1, .3, 1), visibility 0s .35s;
+  }
+  .chat.on { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+  .chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--blue); color: var(--cream); }
+  .chat-head b { display: block; line-height: 1.2; }
+  .chat-head small { display: block; font-size: .74rem; opacity: .8; }
+  .chat-head div { flex: 1; }
+  .chat-x { background: none; border: none; color: inherit; cursor: pointer; padding: 6px; border-radius: 50%; }
+  .chat-x svg { width: 18px; height: 18px; }
+  .chat-x:hover { background: rgba(255, 253, 245, .18); }
+  .chat-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 86%; padding: 9px 13px; border-radius: 16px; font-size: .92rem; line-height: 1.45; }
+  .msg.bot { align-self: flex-start; background: var(--card); border-bottom-left-radius: 4px; }
+  .msg.you { align-self: flex-end; background: var(--blue); color: var(--cream); border-bottom-right-radius: 4px; }
+  .msg a { display: inline-block; margin-top: 6px; font-weight: 600; color: var(--accent); }
+  .msg.typing { color: var(--muted); font-family: var(--mono); font-size: .8rem; }
+  .chips-q { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 12px; }
+  .chips-q button { font: inherit; font-size: .8rem; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; transition: border-color .15s, color .15s; }
+  .chips-q button:hover { border-color: var(--accent); color: var(--accent); }
+  .chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); }
+  .chat-form input { flex: 1; min-width: 0; font: inherit; font-size: .94rem; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+  .chat-form input:focus { border-color: var(--accent); }
+  .chat-form input::placeholder { color: var(--muted); }
+  .chat-form button { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer; background: var(--cta); color: var(--on-cta); }
+  .chat-form button svg { width: 18px; height: 18px; }
+
+  /* ---------- reveal while scrolling ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1); }
+  .reveal.show { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .dot, .hero h1, .buddy, .eye, .hit { animation: none; }
+    .btn, .ico, .project, .hobbies a, .h-ico, .fly, .skill-chips button, .used a, .buddy, .chat, .buddy-say, .pupil { transition: none; }
+  }
+
+  /* ---------- smaller screens ---------- */
+  @media (hover: none), (max-width: 980px) { .fly, .hint { display: none; } }
   @media (max-width: 860px) {
     .bar { flex-direction: column; align-items: stretch; padding: 12px 16px; max-width: 100vw; }
     .bar > * { min-width: 0; max-width: 100%; }
@@ -263,26 +377,44 @@
     nav.main { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
     nav.main::-webkit-scrollbar { display: none; }
     nav.main a { white-space: nowrap; }
-    html { scroll-padding-top: 120px; }
-    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    html { scroll-padding-top: 124px; }
+    .hero { min-height: 0; }
   }
   @media (max-width: 680px) {
     .wrap { padding: 0 16px; }
-    section { padding: 52px 0; }
-    .hero { padding-top: 40px; }
-    .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
-    .photo, .photo-fallback { width: 150px; height: 150px; border-width: 4px; }
-    .photo-ring { padding: 4px; }
+    .card { padding: 24px 20px; }
+    .hero { padding: 32px 0 44px; }
+    .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
+    .photo, .photo-fallback { width: 150px; height: 150px; border-width: 3px; }
+    .photo-wrap::before { transform: translate(10px, 9px); }
+    .lede { font-size: 1.12rem; }
+    .entry { grid-template-columns: 1fr; }
+    .when b { display: inline; }
+    .block { padding-top: 48px; }
+    .block > h2 { font-size: 1.7rem; margin-bottom: 22px; }
     .projects { grid-template-columns: 1fr; }
-    .highlights { margin-top: 36px; }
-    .timeline { padding-left: 22px; }
-    .entry { padding: 18px; }
-    .entry::before { left: -23px; }
+    .project.feature { grid-column: auto; }
+    .hobbies { grid-template-columns: 1fr; gap: 12px; }
+    .buddy-wrap { right: 14px; bottom: 14px; }
+    .chat { right: 14px; bottom: 84px; }
   }
-  @media (max-width: 560px) { .highlights { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
+
+<!-- icons used across the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gh" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 16 16"><path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></g></symbol>
+  <symbol id="i-cv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7.5 11l4.5 4.5 4.5-4.5"/><path d="M5 19.5h14"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5a7 7 0 10-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></g></symbol>
+  <symbol id="i-hike" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19.5l6.5-11 4 6.5 2.5-3.5 6 8z"/><path d="M7 11.8l2 1.4 1.8-1.7"/><circle cx="17.5" cy="5.5" r="1.8"/></g></symbol>
+  <symbol id="i-paint" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.5L19.2 4.8a1.9 1.9 0 012.7 2.7L12.5 17"/><path d="M10 14.5l2.5 2.5"/><path d="M3 20.5c2.8.3 5.5-.7 5.5-3.2 0-1.500-1.100-2.600-2.500-2.600-2.200 0-2.300 2.300-3 5.800z"/></g></symbol>
+  <symbol id="i-travel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.2l7.2 2.6L12.800 20z"/><path d="M10.2 12.800L21 3"/></g></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></g></symbol>
+</svg>
 
 <header>
   <div class="bar">
@@ -291,11 +423,11 @@
       <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">◐</button>
     </div>
     <nav class="main" id="nav">
-      <a href="#home">About</a>
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#hobbies">Hobbies</a>
+      <a href="hobbies.html">Hobbies</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -303,231 +435,291 @@
 
 <main class="wrap">
 
-  <!-- ================= 1. PHOTO + ABOUT + TOP 5 SKILLS ================= -->
+  <!-- ================= 1. HERO ================= -->
   <section id="home" class="hero">
-    <div class="hero-top">
+    <div class="hero-top" id="heroTop">
       <div>
-        <p class="status"><span class="dot"></span>Open to work · Germany</p>
-        <h1>Hi, I am <span>Tulasi Nayak</span></h1>
-        <p class="role-title">AI Engineer</p>
-        <p class="tagline">LLM applications · AI agents · RAG · fine-tuning</p>
+        <p class="kicker">AI Engineer</p>
+        <p class="status"><span class="dot"></span>Open to work in Germany</p>
+        <h1>Hi, I'm <span class="name" id="heroName" tabindex="0">Tulasi Nayak</span></h1>
+        <p class="hint">Hover my name for shortcuts</p>
+        <p class="lede">I build LLM applications, AI agents and RAG pipelines.</p>
+        <p class="where"><svg><use href="#i-pin"/></svg>Saarbrücken, Germany</p>
         <div class="socials">
-          <a class="btn primary" href="cv.pdf" download="Tulasi-Nayak-CV.pdf">↓ Download CV</a>
-          <a class="btn" href="https://www.linkedin.com/in/tulasi-nayak/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/tulasinayak" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="mailto:YOUR-EMAIL@example.com">Email</a>
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="cv.pdf" download="Tulasi-Nayak-CV.pdf">Download CV</a>
+          <a class="ico" data-tip="GitHub" href="https://github.com/tulasinayak" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span class="sr">GitHub</span></a>
+          <a class="ico" data-tip="LinkedIn" href="https://www.linkedin.com/in/tulasi-nayak/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg><span class="sr">LinkedIn</span></a>
         </div>
       </div>
+
       <!-- EDIT: put your picture in the repo as photo.jpg (square works best) -->
-      <div class="photo-ring">
-        <img class="photo" src="photo.jpg?v=2" alt="Photo of Tulasi Nayak" width="250" height="250"
+      <div class="photo-wrap">
+        <img class="photo" src="photo.jpg?v=2" alt="Photo of Tulasi Nayak" width="280" height="280"
              onerror="this.outerHTML='<div class=&quot;photo-fallback&quot;>TN</div>'" />
-      </div>
-    </div>
-
-    <ul class="highlights">
-      <li><small>Degree</small><b>M.Sc. Computer Science</b><span>Saarland University · 2026</span></li>
-      <li><small>Thesis</small><b>LLMs for classifying facial expressions in clinical interviews</b><span>DFKI</span></li>
-      <li><small>Research</small><b>Research Assistant, ML</b><span>CISPA Helmholtz Center</span></li>
-    </ul>
-
-    <div class="update">
-      <p>Graduating with an M.Sc. from Saarland University in 2026 and open to full-time roles (on-site, hybrid or remote) as:</p>
-      <ul class="roles">
-        <li>AI Engineer / Junior AI Engineer</li>
-        <li>LLM Engineer / Generative AI Engineer</li>
-        <li>AI Agent Engineer / Agentic AI Engineer</li>
-        <li>Applied AI Engineer</li>
-        <li>Machine Learning Engineer (LLM/NLP focus)</li>
-        <li>NLP Engineer</li>
-      </ul>
-    </div>
-
-    <div class="about-grid">
-      <div class="about">
-        <p class="label">About</p>
-        <p>
-          I'm an AI Engineer who takes LLM systems from idea to working product. I build multi-agent
-          applications, retrieval-augmented pipelines and safety guardrails, and I fine-tune open-weight
-          models such as Qwen and Llama with LoRA and QLoRA on multi-GPU servers.
-        </p>
-        <p>
-          My master's thesis at Saarland University applies fine-tuned LLMs to a real clinical dataset,
-          and as a research assistant at CISPA I work with researchers from LMU Munich on LLM-driven
-          feature discovery for drug research.
-          Both taught me what production AI needs most: strong baselines, careful evaluation, and
-          results you can trust.
-        </p>
-        <p>
-          I'm looking for a team where I can ship LLM and agent features that real users rely on.
-        </p>
+        <!-- shortcuts that appear while hovering the name -->
+        <a class="fly f1 c-blue" href="#about"><b>About me</b><small>who I am</small></a>
+        <a class="fly f2 c-butter" href="#thesis"><b>DFKI</b><small>master's thesis</small></a>
+        <a class="fly f3 c-red" href="#exp-amp"><b>CISPA</b><small>research assistant</small></a>
+        <a class="fly f4 c-plain" href="#skills"><b>Skills</b><small>and where I used them</small></a>
+        <a class="fly f5 c-blue" href="#projects"><b>Projects</b><small>LLM apps and agents</small></a>
+        <a class="fly f6 c-butter" href="hobbies.html"><b>Hobbies</b><small>hiking, art, travel</small></a>
       </div>
 
-      <div class="top-skills">
-        <p class="label">Top 5 skills</p>
-        <ol class="skill-list">
-          <li><span class="n">01</span><div>LLM applications &amp; AI agents <small>multi-agent orchestration, tool use, LangChain, Ollama</small></div></li>
-          <li><span class="n">02</span><div>RAG &amp; LLM guardrails <small>retrieval pipelines, grounded generation, claim verification, PII redaction</small></div></li>
-          <li><span class="n">03</span><div>LLM fine-tuning <small>LoRA / QLoRA, PEFT, Hugging Face Transformers, Optuna, multi-GPU</small></div></li>
-          <li><span class="n">04</span><div>Python &amp; backend <small>PyTorch, FastAPI, Streamlit, Git, Linux</small></div></li>
-          <li><span class="n">05</span><div>Evaluation &amp; reliability <small>benchmarks, baselines, ablations, error analysis, confidence intervals</small></div></li>
-        </ol>
-      </div>
     </div>
   </section>
 
-  <!-- ================= 2. EXPERIENCE ================= -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
+  <!-- ================= 2. ABOUT, EXPERIENCE, EDUCATION, SKILLS ================= -->
+  <div class="profile">
 
-    <div class="entry">
-      <a class="org" href="https://www.dfki.de" target="_blank" rel="noopener">DFKI — German Research Center for Artificial Intelligence</a>
-      <p class="role">Master's Thesis Student – Machine Learning / NLP</p>
-      <p class="thesis"><b>Thesis:</b> Leveraging Large Language Models to Classify the Function of Negative Facial Expressions in OPD Clinical Interviews</p>
-      <p class="meta">05/2025 – Present · Saarbrücken, Germany</p>
-      <ul>
-        <li>Owned an NLP classification problem end to end on sensitive clinical interview data: data processing, label handling, model selection, training, evaluation and reporting.</li>
-        <li>Fine-tuned Llama-3.1-8B and Qwen3-8B with 4-bit QLoRA (PyTorch, PEFT) on multi-GPU A100 hardware, benchmarked against classical and pretrained baselines on quality vs. compute cost.</li>
-        <li>Designed the evaluation protocol: patient-stratified cross-validation to prevent leakage, metrics suited to imbalanced labels, and Bayesian hyperparameter optimisation (Optuna); communicated results to clinical domain experts.</li>
-      </ul>
-    </div>
+    <div class="stack">
 
-    <div class="entry">
-      <a class="org" href="https://cispa.de" target="_blank" rel="noopener">CISPA Helmholtz Center for Information Security</a>
-      <p class="role">Research Assistant – Machine Learning (part-time)</p>
-      <p class="meta">08/2024 – Present · Saarbrücken, Germany</p>
-      <ul>
-        <li>Built XGBoost ML pipelines with systematic feature engineering for antimicrobial-activity prediction and benchmarked them against pretrained embeddings.</li>
-        <li>Designed an evaluation and audit framework testing whether LLM-proposed features can replace engineered descriptors.</li>
-      </ul>
-    </div>
-    </div>
-  </section>
+      <section id="about" class="card about">
+        <h2>A little bit about me</h2>
+        <p>
+          I'm an AI Engineer based in Saarbrücken, Germany, finishing my M.Sc. in Computer Science at
+          Saarland University. I've always been drawn to the point where research turns into something
+          people can actually use, which is why I like taking LLM systems from an idea to a working product:
+          multi-agent applications, retrieval-augmented pipelines, safety guardrails, and fine-tuned
+          open-weight models such as Qwen and Llama.
+        </p>
+        <p>
+          My thesis at DFKI applies fine-tuned LLMs to real clinical interviews, and at CISPA I work with
+          researchers from LMU Munich on LLM-driven feature discovery for drug research. Both taught me that
+          a model is only as good as its evaluation: strong baselines, careful splits, and results you can trust.
+        </p>
+        <p>
+          When I'm not training models, I like to switch off properly. You'll usually find me on a hiking
+          trail, painting, or exploring a new city.
+        </p>
+        <div class="open">
+          <p>I'm looking for a team where I can ship LLM and agent features that real users rely on. Open to full-time roles (on-site, hybrid or remote) as:</p>
+          <ul class="roles">
+            <li>AI Engineer / Junior AI Engineer</li>
+            <li>LLM Engineer / Generative AI Engineer</li>
+            <li>AI Agent Engineer / Agentic AI Engineer</li>
+            <li>Applied AI Engineer</li>
+            <li>Machine Learning Engineer (LLM/NLP focus)</li>
+            <li>NLP Engineer</li>
+          </ul>
+        </div>
+      </section>
 
-  <!-- ================= 3. EDUCATION ================= -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="timeline">
+      <section id="experience" class="card">
+        <h2>Experience</h2>
 
-    <div class="entry">
-      <a class="org" href="https://www.uni-saarland.de" target="_blank" rel="noopener">Saarland University</a>
-      <p class="role">M.Sc. Computer Science</p>
-      <p class="meta">10/2023 – 2026 · Saarbrücken, Germany</p>
-      <ul>
-        <li>Relevant coursework: Generative AI, Trustworthy Machine Learning, Robustness in Machine Learning, Attacks on Machine Learning</li>
-        <li>Completed two research seminars</li>
-      </ul>
-    </div>
+        <div class="entry" id="thesis">
+          <p class="when"><b>05/2025 - Present</b>Saarbrücken, Germany</p>
+          <div class="body">
+            <a class="org" href="https://www.dfki.de" target="_blank" rel="noopener">DFKI, German Research Center for Artificial Intelligence</a>
+            <p class="role">Master's Thesis Student, Machine Learning / NLP</p>
+            <div class="panel">
+              <h4><small>Thesis</small>Leveraging Large Language Models to Classify the Function of Negative Facial Expressions in OPD Clinical Interviews</h4>
+              <ul>
+                <li>Owned an NLP classification problem end to end on sensitive clinical interview data: data processing, label handling, model selection, training, evaluation and reporting.</li>
+                <li>Fine-tuned Llama-3.1-8B and Qwen3-8B with 4-bit QLoRA (PyTorch, PEFT) on multi-GPU A100 hardware, benchmarked against classical and pretrained baselines on quality vs. compute cost.</li>
+                <li>Designed the evaluation protocol: patient-stratified cross-validation to prevent leakage, metrics suited to imbalanced labels, and Bayesian hyperparameter optimisation (Optuna); communicated results to clinical domain experts.</li>
+              </ul>
+              <ul class="tags"><li>PyTorch</li><li>PEFT</li><li>QLoRA</li><li>Llama 3.1</li><li>Qwen3</li><li>Optuna</li><li>Multi-GPU</li></ul>
+            </div>
+          </div>
+        </div>
 
-    <div class="entry">
-      <span class="org">NMAM Institute of Technology (Nitte Mahalinga Adyanthaya Memorial Institute of Technology)</span>
-      <p class="role">B.E. Information Science</p>
-      <p class="meta">08/2019 – 06/2023 · Udupi, India</p>
-      <ul>
-        <li>Grade: 1.3 on the German scale ("Sehr gut")</li>
-        <li>Manager of the ACM student council, ISTE member, organised technical and non-technical events, led final-year project group</li>
-      </ul>
-    </div>
-    </div>
-  </section>
+        <div class="entry">
+          <p class="when"><b>08/2024 - Present</b>Saarbrücken, Germany</p>
+          <div class="body">
+            <a class="org" href="https://cispa.de" target="_blank" rel="noopener">CISPA Helmholtz Center for Information Security</a>
+            <p class="role">Research Assistant, Machine Learning (part-time)</p>
 
-  <!-- ================= 4. PROJECTS ================= -->
-  <section id="projects">
+            <div class="panel" id="exp-amp">
+              <h4><small>Research project</small>LLMs as molecular feature generators for antimicrobial-activity prediction</h4>
+              <ul>
+                <li>Prompted six GPT-4.x and GPT-5.x models zero-shot through the OpenAI API to generate molecular descriptors from SMILES strings alone, then audited them against expert-selected RDKit descriptors and pretrained MolE embeddings.</li>
+                <li>Built the XGBoost pipeline that fuses LLM descriptors, MolE embeddings and bacterial-strain features on about 47,900 compound-strain pairs (1,197 compounds × 40 gut bacterial strains).</li>
+                <li>Designed the evaluation: scaffold-held-out splits so the model is tested on unseen chemical scaffolds, identical hyperparameter search for every configuration, and PR-AUC as the primary metric for imbalanced labels.</li>
+                <li>Showed that LLM-proposed features are competitive with expert-engineered descriptors, which makes the LLM most useful as a feature proposer working alongside deterministic chemistry tools.</li>
+              </ul>
+              <ul class="tags"><li>Python</li><li>OpenAI API</li><li>Prompt engineering</li><li>XGBoost</li><li>scikit-learn</li><li>RDKit</li><li>MolE embeddings</li><li>Feature engineering</li><li>Scaffold split</li><li>PR-AUC</li></ul>
+            </div>
+
+            <div class="panel" id="exp-lowdata">
+              <h4><small>Research project</small>Optimization in the low-data regime</h4>
+              <ul>
+                <li>Studied how transfer learning helps when labelled data is scarce: pretrained a two-layer neural network on MNIST digits, then fine-tuned only the final layer on related, unrelated and out-of-domain targets (FashionMNIST, CIFAR-10).</li>
+                <li>Benchmarked fine-tuned models against trained-from-scratch baselines at six dataset sizes from 10 to 1,000 samples per class, using AdamW, early stopping, and both test accuracy and cross-entropy loss.</li>
+                <li>Found that fine-tuning helps most at the smallest sizes (53.4% → 59.3% accuracy with 10 samples per class on related digits), that the gap narrows as data grows, and that it brings little benefit under strong domain mismatch.</li>
+              </ul>
+              <ul class="tags"><li>Python</li><li>Neural networks</li><li>Transfer learning</li><li>Fine-tuning</li><li>AdamW</li><li>Early stopping</li><li>MNIST</li><li>FashionMNIST</li><li>CIFAR-10</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="card">
+        <h2>Education</h2>
+
+        <div class="entry">
+          <p class="when"><b>10/2023 - 2026</b>Saarbrücken, Germany</p>
+          <div class="body">
+            <a class="org" href="https://www.uni-saarland.de" target="_blank" rel="noopener">Saarland University</a>
+            <p class="role">M.Sc. Computer Science</p>
+            <ul>
+              <li>Relevant coursework: Generative AI, Trustworthy Machine Learning, Robustness in Machine Learning, Attacks on Machine Learning</li>
+              <li>Completed two research seminars</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <p class="when"><b>08/2019 - 06/2023</b>Udupi, India</p>
+          <div class="body">
+            <span class="org">NMAM Institute of Technology (Nitte Mahalinga Adyanthaya Memorial Institute of Technology)</span>
+            <p class="role">B.E. Information Science</p>
+            <ul>
+              <li>Grade: 1.3 on the German scale ("Sehr gut")</li>
+              <li>Manager of the ACM student council, ISTE member, organised technical and non-technical events, led final-year project group</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h2>Skills</h2>
+        <p class="skills-note">Pick a skill to see where I used it.</p>
+        <!-- To add a skill: copy one <li> and list the ids of the project cards or experience panels in data-used.
+             New ids also need a name in WORK (script at the bottom). -->
+        <ul class="skill-chips" id="skillChips">
+          <li><button type="button" data-used="p-tripbuddy,p-documind">LLM apps &amp; AI agents</button></li>
+          <li><button type="button" data-used="p-guardrail,p-documind">RAG</button></li>
+          <li><button type="button" data-used="p-guardrail">LLM guardrails</button></li>
+          <li><button type="button" data-used="thesis">LLM fine-tuning</button></li>
+          <li><button type="button" data-used="exp-amp">Prompt engineering</button></li>
+          <li><button type="button" data-used="thesis,exp-amp,exp-lowdata">Evaluation</button></li>
+          <li><button type="button" data-used="exp-amp,p-healthcare">Classical ML</button></li>
+          <li><button type="button" data-used="exp-lowdata">Transfer learning</button></li>
+          <li><button type="button" data-used="p-mia">ML security &amp; privacy</button></li>
+          <li><button type="button" data-used="p-tripbuddy,p-documind">LangChain</button></li>
+          <li><button type="button" data-used="thesis,p-mia">PyTorch</button></li>
+          <li><button type="button" data-used="p-tripbuddy,p-depscan,p-documind">Python backends</button></li>
+          <li><button type="button" data-used="p-depscan,p-guardrail">Local LLMs</button></li>
+        </ul>
+        <div class="skill-box" aria-live="polite">
+          <p id="skillLabel">Worked on in</p>
+          <div class="used" id="skillUsed"></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ================= 3. PROJECTS ================= -->
+  <section id="projects" class="block">
     <h2>Projects</h2>
     <!-- Each card is a link to its GitHub repo.
-         To add a project: copy one <a class="project">…</a> block, change the href, title, line and tags. -->
+         To add a project: copy one <a class="project">…</a> block, change the id, href, title, line and tags. -->
     <div class="projects">
 
-      <a class="project" href="https://github.com/tulasinayak/medical_guardrail" target="_blank" rel="noopener">
+      <a class="project feature" id="p-guardrail" href="https://github.com/tulasinayak/medical_guardrail" target="_blank" rel="noopener">
         <div class="project-title"><h3>Context Guardrail</h3><span class="arrow">↗</span></div>
         <p>Three-stage LLM guardrail that asks for missing safety-critical context, grounds answers in retrieved evidence, and verifies claims before replying.</p>
         <ul class="tags"><li>Python</li><li>RAG</li><li>Mistral</li><li>Guardrails</li></ul>
       </a>
 
-      <a class="project" href="https://github.com/tulasinayak/TRIPBuddy" target="_blank" rel="noopener">
+      <a class="project" id="p-tripbuddy" href="https://github.com/tulasinayak/TRIPBuddy" target="_blank" rel="noopener">
         <div class="project-title"><h3>TRIPBuddy</h3><span class="arrow">↗</span></div>
         <p>Multi-agent travel planner with a FastAPI backend and spoken itineraries via text-to-speech.</p>
         <ul class="tags"><li>FastAPI</li><li>LangChain</li><li>ElevenLabs</li></ul>
       </a>
 
-      <a class="project" href="https://github.com/tulasinayak/DocuMind-Agent" target="_blank" rel="noopener">
+      <a class="project" id="p-documind" href="https://github.com/tulasinayak/DocuMind-Agent" target="_blank" rel="noopener">
         <div class="project-title"><h3>DocuMind Agent</h3><span class="arrow">↗</span></div>
         <p>RAG chatbot that answers questions from PDF documents, grounding LLM responses in retrieved source content.</p>
         <ul class="tags"><li>Python</li><li>LangChain</li><li>RAG</li><li>FAISS</li><li>Gradio</li></ul>
       </a>
 
-      <a class="project" href="https://github.com/tulasinayak/depscan" target="_blank" rel="noopener">
+      <a class="project" id="p-depscan" href="https://github.com/tulasinayak/depscan" target="_blank" rel="noopener">
         <div class="project-title"><h3>depscan</h3><span class="arrow">↗</span></div>
         <p>Scans Python dependencies for known CVEs, locates where vulnerable code is actually used, and uses a local LLM to judge real impact.</p>
         <ul class="tags"><li>Python</li><li>Security</li><li>Streamlit</li><li>Ollama</li><li>OSV.dev</li></ul>
       </a>
 
-      <a class="project" href="https://github.com/CamiloMartinezM/ml-healthcare-project" target="_blank" rel="noopener">
+      <a class="project" id="p-healthcare" href="https://github.com/CamiloMartinezM/ml-healthcare-project" target="_blank" rel="noopener">
         <div class="project-title"><h3>ML Healthcare Project</h3><span class="arrow">↗</span></div>
-        <p>Group project building regression and classification models for healthcare data — I worked on the classification pipeline.</p>
+        <p>Group project building regression and classification models for healthcare data. I worked on the classification pipeline.</p>
         <ul class="tags"><li>Python</li><li>Machine Learning</li><li>Classification</li><li>Jupyter</li></ul>
       </a>
 
+      <a class="project" id="p-mia" href="https://github.com/tulasinayak/Membership-Inference-attack-project" target="_blank" rel="noopener">
+        <div class="project-title"><h3>Membership Inference Attack</h3><span class="arrow">↗</span></div>
+        <p>Shadow-model attacks that predict whether an image was in a classifier's training set, run against ResNet34 and MobileNetV2 on CIFAR-10 and Tiny ImageNet, with attack accuracy from 65% to over 90%.</p>
+        <ul class="tags"><li>PyTorch</li><li>ML security</li><li>Privacy</li><li>Shadow models</li></ul>
+      </a>
+
       <a class="project more-projects" href="https://github.com/tulasinayak?tab=repositories" target="_blank" rel="noopener">
-        <div class="project-title"><h3>More projects on GitHub</h3><span class="arrow">↗</span></div>
-        <p>Browse the rest of my repositories.</p>
+        <h3>More projects on GitHub</h3>
+        <p>Browse the rest of my repositories <span class="arrow">↗</span></p>
       </a>
 
     </div>
   </section>
 
-  <!-- ================= 5. HOBBIES ================= -->
-  <section id="hobbies">
+  <!-- ================= 4. HOBBIES ================= -->
+  <section id="hobbies" class="block">
     <h2>Hobbies</h2>
     <ul class="hobbies">
-      <li><div class="emoji">🥾</div><h3>Hiking</h3><p>Getting outdoors and off the grid.</p></li>
-      <li><div class="emoji">🎨</div><h3>Painting</h3><p>A slow, creative counterbalance to writing code.</p></li>
-      <li><div class="emoji">✈️</div><h3>Traveling</h3><p>Exploring new places and cultures.</p></li>
+      <li><a href="hobbies.html#hiking"><span class="h-ico c1"><svg><use href="#i-hike"/></svg></span><b>Hiking</b><span class="arrow">↗</span></a></li>
+      <li><a href="hobbies.html#painting"><span class="h-ico c2"><svg><use href="#i-paint"/></svg></span><b>Painting</b><span class="arrow">↗</span></a></li>
+      <li><a href="hobbies.html#traveling"><span class="h-ico c3"><svg><use href="#i-travel"/></svg></span><b>Traveling</b><span class="arrow">↗</span></a></li>
     </ul>
   </section>
 
-  <!-- ================= 6. CONTACT ================= -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Hiring for an AI Engineer? I'd love to hear about the role. Send me a message and I'll reply within a day or two.</p>
-
-    <form id="contactForm" class="mail">
-      <div class="mail-head">
-        <div class="mail-row"><span>To:</span><b id="toAddr"></b></div>
-        <label class="mail-row"><span>From:</span>
-          <input type="text" id="fName" placeholder="Your name" required /></label>
-        <label class="mail-row"><span>Reply to:</span>
-          <input type="email" id="fEmail" placeholder="you@example.com" required /></label>
-        <label class="mail-row"><span>Type:</span>
-          <select id="fType">
-            <option>Job opportunity</option>
-            <option>Collaboration</option>
-            <option>Question about a project</option>
-            <option>Just saying hi</option>
-          </select></label>
-        <label class="mail-row"><span>Subject:</span>
-          <input type="text" id="fSubject" placeholder="What's it about?" /></label>
-      </div>
-      <textarea id="fMsg" rows="7" placeholder="Write your message…" required></textarea>
-      <div class="mail-foot">
-        <button type="submit" class="btn primary">Send ✉</button>
-        <small>Opens your email app with the message ready to send.</small>
-      </div>
-    </form>
+  <!-- ================= 5. CONTACT ================= -->
+  <section id="contact" class="block reach">
+    <h2>Get in touch</h2>
+    <p>Hiring for an AI Engineer? I'd love to hear about the role. I reply within a day or two.</p>
+    <!-- EDIT: your email address (also used by the chat, see MY_EMAIL in the script) -->
+    <div class="icons">
+      <a class="ico hot" data-tip="Email me" href="mailto:tulasinayak0701@gmail.com"><svg><use href="#i-mail"/></svg><span class="sr">Email</span></a>
+      <a class="ico" data-tip="LinkedIn" href="https://www.linkedin.com/in/tulasi-nayak/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg><span class="sr">LinkedIn</span></a>
+      <a class="ico" data-tip="GitHub" href="https://github.com/tulasinayak" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span class="sr">GitHub</span></a>
+      <a class="ico" data-tip="Download CV" href="cv.pdf" download="Tulasi-Nayak-CV.pdf"><svg><use href="#i-cv"/></svg><span class="sr">Download CV</span></a>
+    </div>
   </section>
 
 </main>
 
 <footer>
   <nav>
-    <a href="#home">Home</a>•<a href="#experience">Experience</a>•<a href="#education">Education</a>•<a href="#projects">Projects</a>•<a href="#hobbies">Hobbies</a>•<a href="#contact">Contact</a>
+    <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="hobbies.html">Hobbies</a><a href="#contact">Contact</a>
   </nav>
   © <span id="year"></span> Tulasi Nayak
 </footer>
 
+<!-- ================= COMPANION + CHAT ================= -->
+<div class="chat" id="chat" role="dialog" aria-label="Ask about Tulasi" aria-hidden="true">
+  <div class="chat-head">
+    <div><b>Ask about Tulasi</b><small>Quick answers taken from this page</small></div>
+    <button class="chat-x" id="chatClose" aria-label="Close chat"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <div class="chips-q" id="chatChips"></div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" autocomplete="off" placeholder="Ask about skills, projects, availability" aria-label="Your question" />
+    <button type="submit" aria-label="Send"><svg><use href="#i-send"/></svg></button>
+  </form>
+</div>
+<div class="buddy-wrap">
+  <div class="buddy-say" id="buddySay"></div>
+  <button class="buddy" id="buddy" aria-label="Open chat: ask about Tulasi" aria-expanded="false">
+    <span class="eye l"><span class="pupil"></span></span>
+    <span class="eye r"><span class="pupil"></span></span>
+    <span class="mouth"></span>
+  </button>
+</div>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // dark / light toggle
   document.getElementById("themeBtn").addEventListener("click", () => {
@@ -536,28 +728,54 @@
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
-  // ===== EDIT: your email address (used by the contact form and the Email links) =====
-  const MY_EMAIL = "tulasinayak0701@gmail.com";
+  // hero: hovering (or focusing) the name opens the shortcuts; they stay while the pointer is in the hero
+  const heroTop = document.getElementById("heroTop");
+  const heroName = document.getElementById("heroName");
+  const openFly = () => heroTop.classList.add("fly-on");
+  const closeFly = () => heroTop.classList.remove("fly-on");
+  heroName.addEventListener("mouseenter", openFly);
+  heroName.addEventListener("focus", openFly);
+  heroName.addEventListener("click", openFly);
+  heroTop.addEventListener("mouseleave", closeFly);
+  heroTop.addEventListener("focusout", e => { if (!heroTop.contains(e.relatedTarget)) closeFly(); });
 
-  document.getElementById("toAddr").textContent = MY_EMAIL;
-  document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.href = "mailto:" + MY_EMAIL);
-
-  // contact form → opens the visitor's email app with everything filled in
-  document.getElementById("contactForm").addEventListener("submit", e => {
-    e.preventDefault();
-    const v = id => document.getElementById(id).value.trim();
-    const subject = `[${v("fType")}] ${v("fSubject") || "Message from your website"}`;
-    const body = `${v("fMsg")}\n\n— ${v("fName")}\n${v("fEmail")}`;
-    location.href = `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // a skill link (or a shortcut) briefly rings the thing it jumps to
+  const ring = hash => {
+    const el = hash.length > 1 && document.querySelector(hash);
+    if (!el || !el.matches(".panel, .project, .entry, .card")) return;
+    el.classList.remove("hit"); void el.offsetWidth; el.classList.add("hit");
+  };
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) setTimeout(() => ring(a.getAttribute("href")), 350);
   });
 
-  const nav = document.getElementById("nav");
+  // skills: picking a skill lists the work it was used in
+  // ===== EDIT: names shown for each project card / experience panel id =====
+  const WORK = {
+    "thesis": "DFKI thesis", "exp-amp": "Antimicrobial prediction (CISPA)", "exp-lowdata": "Low-data regime (CISPA)",
+    "p-guardrail": "Context Guardrail", "p-tripbuddy": "TRIPBuddy", "p-documind": "DocuMind Agent",
+    "p-depscan": "depscan", "p-healthcare": "ML Healthcare Project", "p-mia": "Membership Inference Attack"
+  };
+  const skillBtns = [...document.querySelectorAll("#skillChips button")];
+  const skillUsed = document.getElementById("skillUsed"), skillLabel = document.getElementById("skillLabel");
+  const pickSkill = btn => {
+    skillBtns.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    skillLabel.textContent = btn.textContent + ": worked on in";
+    skillUsed.replaceChildren(...btn.dataset.used.split(",").map(id => {
+      const a = document.createElement("a");
+      a.href = "#" + id; a.textContent = WORK[id] || id;
+      return a;
+    }));
+  };
+  skillBtns.forEach(b => b.addEventListener("click", () => pickSkill(b)));
+  pickSkill(skillBtns[0]);
 
   // fade things in as you scroll down
-  const items = document.querySelectorAll("section h2, .entry, .project, .hobbies li, .highlights li, .top-skills, .about, .update, .contact > p, .mail");
+  const items = document.querySelectorAll(".profile .card, .block > h2, .project, .hobbies li, .reach .icons");
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); }
-  }), { threshold: 0.12 });
+  }), { threshold: 0.06 });
   items.forEach(el => { el.classList.add("reveal"); io.observe(el); });
 
   // highlight the nav link of the section you're in
@@ -566,6 +784,167 @@
     if (e.isIntersecting) links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id));
   }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("section[id]").forEach(s => spy.observe(s));
+
+  // ================= companion + chat =================
+  // The chat does not call a language model. It matches the question against the
+  // entries below (all taken from this page) and returns the best one.
+  // ===== EDIT: add or change answers here. k = words to match, a = answer, go = optional [label, link] =====
+  const MY_EMAIL = "tulasinayak0701@gmail.com";
+  const KB = [
+    { k: ["who", "about her", "about tulasi", "yourself", "introduce", "summary", "background", "build", "does she do", "llm app"],
+      a: "Tulasi is an AI Engineer in Saarbrücken, Germany, finishing her M.Sc. in Computer Science at Saarland University in 2026. She builds LLM applications, AI agents and RAG pipelines, and fine-tunes open-weight models.",
+      go: ["Read more", "#about"] },
+    { k: ["experience", "work", "job", "worked", "career", "currently", "company"],
+      a: "Two current roles: master's thesis student at DFKI (since 05/2025), fine-tuning LLMs on clinical interview data, and part-time research assistant at CISPA (since 08/2024), working on machine learning for drug research.",
+      go: ["See experience", "#experience"] },
+    { k: ["dfki", "thesis", "clinical", "facial", "master's thesis", "llama", "qwen"],
+      a: "Her thesis at DFKI is \"Leveraging Large Language Models to Classify the Function of Negative Facial Expressions in OPD Clinical Interviews\". She fine-tuned Llama-3.1-8B and Qwen3-8B with 4-bit QLoRA on multi-GPU A100 hardware and designed a patient-stratified evaluation.",
+      go: ["See the thesis", "#thesis"] },
+    { k: ["cispa", "research assistant", "antimicrobial", "molecule", "molecular", "drug", "xgboost", "rdkit", "hiwi"],
+      a: "At CISPA she tested whether GPT models can propose useful molecular features for antimicrobial-activity prediction, comparing them with RDKit descriptors and MolE embeddings in an XGBoost pipeline with scaffold-held-out splits.",
+      go: ["See the project", "#exp-amp"] },
+    { k: ["low-data", "low data", "transfer learning", "mnist", "small data"],
+      a: "A second CISPA project studied fine-tuning when data is scarce: a network pretrained on MNIST digits, fine-tuned on related, unrelated and out-of-domain targets at 10 to 1,000 samples per class.",
+      go: ["See the project", "#exp-lowdata"] },
+    { k: ["skill", "stack", "tech", "tools", "technologies", "good at", "strength", "python", "pytorch", "langchain", "fastapi"],
+      a: "Core skills: LLM applications and agents, RAG, guardrails, LoRA / QLoRA fine-tuning, evaluation design, and Python (PyTorch, LangChain, FastAPI, XGBoost). Each skill on the page links to where she used it.",
+      go: ["See skills", "#skills"] },
+    { k: ["fine-tun", "finetun", "lora", "qlora", "peft"],
+      a: "She fine-tunes open-weight models such as Llama and Qwen with LoRA and 4-bit QLoRA (PyTorch, PEFT) on multi-GPU servers, with Optuna for hyperparameter search.",
+      go: ["See the thesis", "#thesis"] },
+    { k: ["rag", "retrieval", "guardrail", "hallucination", "grounded"],
+      a: "Context Guardrail is a three-stage LLM guardrail: it asks for missing safety-critical context, grounds answers in retrieved evidence, and verifies claims before replying. DocuMind Agent is a RAG chatbot over PDFs.",
+      go: ["See Context Guardrail", "#p-guardrail"] },
+    { k: ["agent", "multi-agent", "tripbuddy", "travel planner"],
+      a: "TRIPBuddy is a multi-agent travel planner with a FastAPI backend and spoken itineraries via text-to-speech, built with LangChain and ElevenLabs.",
+      go: ["See TRIPBuddy", "#p-tripbuddy"] },
+    { k: ["membership", "inference attack", "privacy", "security", "shadow model", "attack"],
+      a: "In the Membership Inference Attack project she trained shadow models and an attack classifier to predict whether an image was in a model's training set, against ResNet34 and MobileNetV2 on CIFAR-10 and Tiny ImageNet. Attack accuracy ranged from 65% to over 90%.",
+      go: ["See the project", "#p-mia"] },
+    { k: ["project", "built", "portfolio", "github", "repo", "depscan", "documind"],
+      a: "Six projects are on the page: Context Guardrail, TRIPBuddy, DocuMind Agent, depscan (a dependency scanner that uses a local LLM to judge real impact), a membership inference attack project and an ML healthcare group project.",
+      go: ["See projects", "#projects"] },
+    { k: ["education", "degree", "university", "study", "studies", "bachelor", "master", "msc", "m.sc", "grade", "gpa", "college"],
+      a: "M.Sc. Computer Science at Saarland University (10/2023 to 2026), and a B.E. in Information Science from NMAM Institute of Technology, India, with a grade of 1.3 on the German scale.",
+      go: ["See education", "#education"] },
+    { k: ["available", "availability", "hire", "hiring", "open to", "role", "position", "start", "looking for", "full-time", "full time", "remote", "hybrid", "relocat", "location", "where", "based", "germany"],
+      a: "She is based in Saarbrücken, Germany, graduates in 2026, and is open to full-time roles as AI Engineer, LLM / Generative AI Engineer, AI Agent Engineer, Applied AI Engineer, ML Engineer (LLM/NLP) or NLP Engineer, on-site, hybrid or remote.",
+      go: ["Get in touch", "#contact"] },
+    { k: ["contact", "email", "mail", "reach", "linkedin", "message", "talk", "call"],
+      a: "The quickest way is email: " + MY_EMAIL + ". She replies within a day or two. LinkedIn and GitHub are linked at the bottom of the page.",
+      go: ["Go to contact", "#contact"] },
+    { k: ["cv", "resume", "résumé", "download"],
+      a: "You can download her CV as a PDF.",
+      go: ["Download CV", "cv.pdf"] },
+    { k: ["hobb", "free time", "fun", "hiking", "hike", "paint", "art", "travel", "outside work", "interests"],
+      a: "Away from the keyboard: hiking, painting and traveling. There are photos on the hobbies page.",
+      go: ["See hobbies", "hobbies.html"] },
+    { k: ["hello", "hi ", "hey", "good morning", "good evening"],
+      a: "Hi! Ask me about Tulasi's skills, projects, experience or availability." },
+    { k: ["are you", "real ai", "chatgpt", "how do you work", "a bot", "chatbot"],
+      a: "I'm a small helper on this page, not a live language model. I match your question against facts from Tulasi's portfolio and show the closest answer." },
+    { k: ["thank", "thanks", "great", "cool", "nice"],
+      a: "Happy to help. If you'd like to talk to Tulasi directly, the contact icons are at the bottom of the page.",
+      go: ["Get in touch", "#contact"] }
+  ];
+  const SUGGEST = ["What does she build?", "Tell me about the thesis", "Is she open to work?", "Which projects?", "How do I contact her?"];
+  const FALLBACK = "I only know what's on this page, and I couldn't match that. Try asking about skills, projects, the thesis, education or availability, or email Tulasi at " + MY_EMAIL + ".";
+
+  const answer = q => {
+    const s = " " + q.toLowerCase() + " ";
+    let best = null, top = 0;
+    for (const e of KB) {
+      let score = 0;
+      for (const k of e.k) if (s.includes(k)) score += k.length > 4 ? 2 : 1;
+      if (score > top) { top = score; best = e; }
+    }
+    return best || { a: FALLBACK };
+  };
+
+  const chat = document.getElementById("chat"), log = document.getElementById("chatLog");
+  const buddy = document.getElementById("buddy"), say = document.getElementById("buddySay");
+  const input = document.getElementById("chatInput"), chips = document.getElementById("chatChips");
+
+  const addMsg = (text, who, go) => {
+    const m = document.createElement("div");
+    m.className = "msg " + who;
+    m.textContent = text;
+    if (go) {
+      const a = document.createElement("a");
+      a.textContent = go[0] + " →"; a.href = go[1];
+      if (go[1].endsWith(".pdf")) a.download = "Tulasi-Nayak-CV.pdf";
+      m.append(document.createElement("br"), a);
+    }
+    log.appendChild(m);
+    log.scrollTop = log.scrollHeight;
+    return m;
+  };
+  const ask = q => {
+    q = q.trim();
+    if (!q) return;
+    addMsg(q, "you");
+    const wait = addMsg("thinking", "bot typing");
+    setTimeout(() => { wait.remove(); const r = answer(q); addMsg(r.a, "bot", r.go); }, reduceMotion ? 0 : 450);
+  };
+  SUGGEST.forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = t;
+    b.addEventListener("click", () => ask(t));
+    chips.appendChild(b);
+  });
+  document.getElementById("chatForm").addEventListener("submit", e => { e.preventDefault(); ask(input.value); input.value = ""; });
+
+  let greeted = false;
+  const setChat = on => {
+    chat.classList.toggle("on", on);
+    chat.setAttribute("aria-hidden", String(!on));
+    buddy.setAttribute("aria-expanded", String(on));
+    say.classList.remove("on");
+    if (on) {
+      if (!greeted) { greeted = true; addMsg("Hi! I can answer quick questions about Tulasi: her skills, projects, experience and availability.", "bot"); }
+      setTimeout(() => input.focus(), 150);
+    }
+  };
+  buddy.addEventListener("click", () => setChat(!chat.classList.contains("on")));
+  say.addEventListener("click", () => setChat(true));
+  document.getElementById("chatClose").addEventListener("click", () => { setChat(false); buddy.focus(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && chat.classList.contains("on")) { setChat(false); buddy.focus(); } });
+  // a link inside an answer that points at this page closes the chat so you can see where it went
+  log.addEventListener("click", e => { if (e.target.closest('a[href^="#"]')) setChat(false); });
+
+  // the companion says something once at the start, and again as you reach a few sections
+  const speak = (text, ms = 6000) => {
+    if (chat.classList.contains("on")) return;
+    say.textContent = text; say.classList.add("on");
+    clearTimeout(speak.t); speak.t = setTimeout(() => say.classList.remove("on"), ms);
+  };
+  setTimeout(() => speak("Hi! Ask me anything about Tulasi."), 2500);
+  const NOTES = {
+    skills: "Tip: pick a skill to see the work behind it.",
+    projects: "Each card opens the code on GitHub.",
+    contact: "Want an intro first? Ask me here."
+  };
+  const noteSeen = new Set();
+  const noteSpy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting && !noteSeen.has(e.target.id)) { noteSeen.add(e.target.id); speak(NOTES[e.target.id]); }
+  }), { rootMargin: "-40% 0px -45% 0px" });
+  Object.keys(NOTES).forEach(id => noteSpy.observe(document.getElementById(id)));
+
+  // its eyes follow the pointer
+  if (!reduceMotion && matchMedia("(hover: hover)").matches) {
+    let raf = 0;
+    document.addEventListener("pointermove", e => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const r = buddy.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        const d = Math.hypot(dx, dy) || 1, reach = Math.min(1, d / 220);
+        buddy.style.setProperty("--px", (dx / d * 3 * reach).toFixed(2) + "px");
+        buddy.style.setProperty("--py", (dy / d * 3.5 * reach).toFixed(2) + "px");
+      });
+    }, { passive: true });
+  }
 </script>
 </body>
 </html>
